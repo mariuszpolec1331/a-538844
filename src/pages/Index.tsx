@@ -1,10 +1,8 @@
-import { ShoppingCart, Smartphone, Box, UserPlus, Key, Bell, Globe, Shield, Moon } from 'lucide-react';
+import { useState } from 'react';
 import MetricCard from '@/components/MetricCard';
 import MonthlyChart from '@/components/MonthlyChart';
 import CustomerRequests from '@/components/CustomerRequests';
 import SidePanel from '@/components/SidePanel';
-import { useState } from 'react';
-import { Switch } from "@/components/ui/switch";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -14,12 +12,12 @@ const Index = () => {
       case 'dashboard':
         return (
           <>
-            <header className="mb-8">
-              <h1 className="text-3xl font-medium mb-2">Dashboard</h1>
-              <p className="text-dashboard-muted">Below is an example dashboard created using charts from this plugin</p>
+            <header className="mb-6 md:mb-8">
+              <h1 className="text-2xl md:text-3xl font-medium mb-2">Dashboard</h1>
+              <p className="text-sm md:text-base text-dashboard-muted">Below is an example dashboard created using charts from this plugin</p>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
               <MetricCard
                 title="Shop"
                 value={68}
@@ -37,7 +35,7 @@ const Index = () => {
               />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
               <MonthlyChart />
               <CustomerRequests />
             </div>
@@ -177,8 +175,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SidePanel onTabChange={setActiveTab} />
-      <div className="pl-64">
-        <div className="p-8">
+      <div className="pl-0 md:pl-64">
+        <div className="p-4 md:p-8">
           {renderContent()}
         </div>
       </div>

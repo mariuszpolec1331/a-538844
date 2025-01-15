@@ -7,36 +7,36 @@ interface SidePanelProps {
 
 const SidePanel = ({ onTabChange }: SidePanelProps) => {
   return (
-    <div className="h-screen fixed left-0 top-0 w-64 glass-card border-r border-white/10">
-      <div className="p-6">
-        <h2 className="text-xl font-medium mb-6">Navigation</h2>
+    <div className="md:h-screen fixed bottom-0 md:left-0 md:top-0 w-full md:w-64 glass-card border-t md:border-r border-white/10 z-50">
+      <div className="p-4 md:p-6">
+        <h2 className="text-lg md:text-xl font-medium mb-4 md:mb-6 hidden md:block">Navigation</h2>
         <Tabs 
           defaultValue="dashboard" 
-          orientation="vertical" 
+          orientation="horizontal"
           className="w-full"
           onValueChange={onTabChange}
         >
-          <TabsList className="flex flex-col h-auto bg-transparent text-white">
+          <TabsList className="flex md:flex-col h-auto bg-transparent text-white w-full justify-between md:justify-start">
             <TabsTrigger 
               value="dashboard" 
-              className="w-full justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white"
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm"
             >
               <LayoutDashboard className="w-4 h-4" />
-              Dashboard
+              <span className="hidden md:inline">Dashboard</span>
             </TabsTrigger>
             <TabsTrigger 
               value="users" 
-              className="w-full justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white"
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm"
             >
               <Users className="w-4 h-4" />
-              Users
+              <span className="hidden md:inline">Users</span>
             </TabsTrigger>
             <TabsTrigger 
               value="settings" 
-              className="w-full justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white"
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm"
             >
               <Settings className="w-4 h-4" />
-              Settings
+              <span className="hidden md:inline">Settings</span>
             </TabsTrigger>
           </TabsList>
         </Tabs>

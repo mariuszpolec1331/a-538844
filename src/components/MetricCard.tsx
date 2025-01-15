@@ -11,7 +11,7 @@ interface MetricCardProps {
 const MetricCard = ({ title, value, color }: MetricCardProps) => {
   return (
     <div className="metric-card">
-      <div className="relative w-32 h-32 mb-6">
+      <div className="relative w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6">
         <CircularProgressbar
           value={value}
           text={`${value}%`}
@@ -23,7 +23,7 @@ const MetricCard = ({ title, value, color }: MetricCardProps) => {
           })}
         />
       </div>
-      <h3 className="text-lg font-medium text-dashboard-text">{title}</h3>
+      <h3 className="text-base md:text-lg font-medium text-dashboard-text">{title}</h3>
     </div>
   );
 };
