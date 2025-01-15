@@ -16,31 +16,31 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
           className="w-full"
           onValueChange={onTabChange}
         >
-          <TabsList className="flex md:flex-col h-auto bg-transparent text-white w-full justify-between md:justify-start">
+          <TabsList className="flex md:flex-col h-auto bg-transparent text-white w-full justify-between md:justify-start gap-4">
             <TabsTrigger 
               value="dashboard" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm"
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
             >
               <LayoutDashboard className="w-4 h-4" />
               <span className="hidden md:inline">Dashboard</span>
             </TabsTrigger>
             <TabsTrigger 
               value="users" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm"
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
             >
               <Users className="w-4 h-4" />
               <span className="hidden md:inline">Users</span>
             </TabsTrigger>
             <TabsTrigger 
               value="ui" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm"
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
             >
               <Mic2 className="w-4 h-4" />
               <span className="hidden md:inline">UI</span>
             </TabsTrigger>
             <TabsTrigger 
               value="settings" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm"
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
             >
               <Settings className="w-4 h-4" />
               <span className="hidden md:inline">Settings</span>
