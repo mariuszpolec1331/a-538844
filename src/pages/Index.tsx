@@ -228,11 +228,30 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <SidePanel onTabChange={setActiveTab} />
-      <div className="pl-0 md:pl-64">
-        <div className="p-4 md:p-8">
-          {renderContent()}
+    <div className="min-h-screen relative">
+      {/* Persistent Top Bar */}
+      <div className="fixed top-0 left-0 right-0 bg-dashboard-dark/80 backdrop-blur-lg z-50 border-b border-white/10">
+        <div className="container mx-auto px-4 py-4">
+          <h1 className="text-2xl font-bold text-white text-center">META AGENT</h1>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="pt-16 pb-20"> {/* Added padding-top to account for the fixed header */}
+        <SidePanel onTabChange={setActiveTab} />
+        <div className="pl-0 md:pl-64">
+          <div className="p-4 md:p-8">
+            {renderContent()}
+          </div>
+        </div>
+      </div>
+
+      {/* Persistent Bottom Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-dashboard-dark/80 backdrop-blur-lg z-50 border-t border-white/10">
+        <div className="container mx-auto px-4 py-3">
+          <p className="text-dashboard-text text-center text-sm md:text-base">
+            MetaAgent orchestrates your transformation and AI integration
+          </p>
         </div>
       </div>
     </div>
