@@ -173,47 +173,49 @@ const Index = () => {
       case 'ui':
         return (
           <>
-            <header className="mb-8">
-              <h1 className="text-3xl font-medium mb-2">Voice AI Interface</h1>
-              <p className="text-dashboard-muted">Interact with our AI assistant using voice commands</p>
-            </header>
-            <div className="grid grid-cols-1 gap-6">
-              <div className="dashboard-card">
-                <div className="flex flex-col items-center justify-center p-8 text-center">
-                  <button
-                    onClick={() => setIsListening(!isListening)}
-                    className={`p-8 rounded-full transition-all duration-300 ${
-                      isListening 
-                        ? 'bg-dashboard-accent1 text-white' 
-                        : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
-                    }`}
-                  >
-                    <Mic2 className={`w-12 h-12 ${isListening ? 'animate-pulse' : ''}`} />
-                  </button>
-                  <p className="mt-4 text-lg">
-                    {isListening ? 'Listening...' : 'Click to start speaking'}
-                  </p>
-                  <p className="mt-2 text-dashboard-muted text-sm">
-                    {isListening 
-                      ? 'Speak clearly into your microphone' 
-                      : 'Tap the microphone to begin a conversation'}
-                  </p>
-                </div>
+            <div className="flex items-center justify-center min-h-[80vh] relative">
+              <div className="relative">
+                {/* Outer ring animation */}
+                <div className={`absolute inset-0 rounded-full ${
+                  isListening ? 'bg-dashboard-accent1/20 animate-pulse-ring' : ''
+                }`} />
+                
+                {/* Middle ring animation */}
+                <div className={`absolute inset-2 rounded-full ${
+                  isListening ? 'bg-dashboard-accent1/30 animate-pulse-ring [animation-delay:0.4s]' : ''
+                }`} />
+                
+                {/* Inner ring animation */}
+                <div className={`absolute inset-4 rounded-full ${
+                  isListening ? 'bg-dashboard-accent1/40 animate-pulse-ring [animation-delay:0.8s]' : ''
+                }`} />
+                
+                {/* Main button */}
+                <button
+                  onClick={() => setIsListening(!isListening)}
+                  className={`relative z-10 p-12 rounded-full transition-all duration-500 transform hover:scale-105 ${
+                    isListening 
+                      ? 'bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50' 
+                      : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
+                  }`}
+                >
+                  <Mic2 className={`w-16 h-16 transition-transform duration-300 ${
+                    isListening ? 'scale-110' : 'scale-100'
+                  }`} />
+                </button>
               </div>
-              <div className="dashboard-card">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-medium">Conversation History</h3>
-                  <div className="space-y-4 max-h-[400px] overflow-y-auto">
-                    <div className="p-4 glass-card">
-                      <p className="text-sm text-dashboard-muted mb-1">You</p>
-                      <p>What can you help me with?</p>
-                    </div>
-                    <div className="p-4 glass-card bg-dashboard-accent1/10">
-                      <p className="text-sm text-dashboard-muted mb-1">AI Assistant</p>
-                      <p>I can help you with various tasks. Just ask me anything!</p>
-                    </div>
-                  </div>
-                </div>
+              
+              <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${
+                isListening ? 'opacity-100' : 'opacity-70'
+              }`}>
+                <p className="text-xl font-medium text-center">
+                  {isListening ? 'Listening...' : 'Click to start speaking'}
+                </p>
+                <p className="mt-2 text-dashboard-muted text-center">
+                  {isListening 
+                    ? 'Speak clearly into your microphone' 
+                    : 'Tap the microphone to begin'}
+                </p>
               </div>
             </div>
           </>
