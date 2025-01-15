@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { UserPlus, Key, Shield, Bell, Globe } from 'lucide-react';
+import { Switch } from '@/components/ui/switch';
 import MetricCard from '@/components/MetricCard';
 import MonthlyChart from '@/components/MonthlyChart';
 import CustomerRequests from '@/components/CustomerRequests';
