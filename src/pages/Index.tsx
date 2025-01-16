@@ -19,30 +19,6 @@ const Index = () => {
     setShowLayerImage(true);
   };
 
-  // Generate 100 random positions for the 'x' symbols
-  const generateSymbols = () => {
-    const symbols = [];
-    for (let i = 0; i < 100; i++) {
-      const top = Math.random() * 100;
-      const left = Math.random() * 100;
-      symbols.push(
-        <span
-          key={i}
-          className="absolute text-dashboard-accent1 text-xs opacity-40"
-          style={{
-            top: `${top}%`,
-            left: `${left}%`,
-            transform: 'translate(-50%, -50%)',
-            animation: `pulse ${Math.random() * 2 + 1}s infinite`
-          }}
-        >
-          x
-        </span>
-      );
-    }
-    return symbols;
-  };
-
   const renderContent = () => {
     switch (activeTab) {
       case 'dashboard':
@@ -95,14 +71,11 @@ const Index = () => {
               </button>
 
               {showLayerImage && (
-                <div className="w-full mt-8 relative">
-                  <div className="absolute inset-0 z-10">
-                    {generateSymbols()}
-                  </div>
+                <div className="w-full mt-8">
                   <img 
                     src="/lovable-uploads/ee22e848-8472-4ac9-821b-a73bd635f37f.png" 
                     alt="AI Layer Architecture"
-                    className="w-full h-auto rounded-lg shadow-lg relative z-0"
+                    className="w-full h-auto rounded-lg shadow-lg"
                   />
                 </div>
               )}
