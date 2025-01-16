@@ -9,9 +9,14 @@ import SidePanel from '@/components/SidePanel';
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isListening, setIsListening] = useState(false);
+  const [showLayerImage, setShowLayerImage] = useState(false);
 
   const handleMicClick = () => {
     setIsListening(!isListening);
+  };
+
+  const handleTurnOn = () => {
+    setShowLayerImage(true);
   };
 
   const renderContent = () => {
@@ -50,50 +55,54 @@ const Index = () => {
         );
       case 'ui':
         return (
-          <div className="flex items-center justify-center min-h-[80vh] relative">
-            <div className="relative">
-              {/* Outer ring animation */}
-              <div className={`absolute inset-0 rounded-full ${
-                isListening ? 'bg-dashboard-accent1/20 animate-pulse-ring' : ''
-              }`} />
-              
-              {/* Middle ring animation */}
-              <div className={`absolute inset-2 rounded-full ${
-                isListening ? 'bg-dashboard-accent1/30 animate-pulse-ring [animation-delay:0.4s]' : ''
-              }`} />
-              
-              {/* Inner ring animation */}
-              <div className={`absolute inset-4 rounded-full ${
-                isListening ? 'bg-dashboard-accent1/40 animate-pulse-ring [animation-delay:0.8s]' : ''
-              }`} />
-              
-              {/* Main button */}
-              <button
-                onClick={handleMicClick}
-                className={`relative z-10 p-12 rounded-full transition-all duration-500 transform hover:scale-105 ${
-                  isListening 
-                    ? 'bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50' 
-                    : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
-                }`}
-              >
-                <Mic2 className={`w-16 h-16 transition-transform duration-300 ${
-                  isListening ? 'scale-110' : 'scale-100'
-                }`} />
-              </button>
-            </div>
-            
-            <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${
-              isListening ? 'opacity-100' : 'opacity-70'
-            }`}>
-              <p className="text-xl font-medium text-center">
-                {isListening ? 'Listening...' : 'Click to start speaking'}
-              </p>
-              <p className="mt-2 text-dashboard-muted text-center">
-                {isListening 
-                  ? 'Speak clearly into your microphone' 
-                  : 'Tap the microphone to begin'}
-              </p>
-            </div>
+          <div className="flex flex-col items-center justify-center min-h-[80vh] relative">
+            {showLayerImage ? (
+              <div className="w-full max-w-4xl mx-auto p-4">
+                <img 
+                  src="/lovable-uploads/991435bd-ee4f-46bd-aa72-d21fb72b8bd7.png" 
+                  alt="AI Layer Architecture"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            ) : (
+              <>
+                <div className="relative">
+                  <div className={`absolute inset-0 rounded-full ${
+                    isListening ? 'bg-dashboard-accent1/20 animate-pulse-ring' : ''
+                  }`} />
+                  
+                  <div className={`absolute inset-2 rounded-full ${
+                    isListening ? 'bg-dashboard-accent1/30 animate-pulse-ring [animation-delay:0.4s]' : ''
+                  }`} />
+                  
+                  <div className={`absolute inset-4 rounded-full ${
+                    isListening ? 'bg-dashboard-accent1/40 animate-pulse-ring [animation-delay:0.8s]' : ''
+                  }`} />
+                  
+                  <button
+                    onClick={handleTurnOn}
+                    className={`relative z-10 p-12 rounded-full transition-all duration-500 transform hover:scale-105 ${
+                      isListening 
+                        ? 'bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50' 
+                        : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
+                    }`}
+                  >
+                    <Mic2 className={`w-16 h-16 transition-transform duration-300 ${
+                      isListening ? 'scale-110' : 'scale-100'
+                    }`} />
+                  </button>
+                </div>
+                
+                <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${
+                  isListening ? 'opacity-100' : 'opacity-70'
+                }`}>
+                  <p className="text-xl font-medium text-center">Turn On</p>
+                  <p className="mt-2 text-dashboard-muted text-center">
+                    Click to view the layer architecture
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         );
       case 'users':
