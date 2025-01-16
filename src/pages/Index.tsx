@@ -168,7 +168,7 @@ const Index = () => {
           <>
             <header className="mb-8">
               <h1 className="text-3xl font-medium mb-2">Every Business is a Set of Scenarios</h1>
-              <p className="text-dashboard-muted">Configure your application settings</p>
+              <p className="text-dashboard-muted">MetaAgent is a central AI orchestration layer where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine predefined expert scenarios with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.</p>
             </header>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="dashboard-card">
