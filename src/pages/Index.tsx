@@ -9,14 +9,9 @@ import SidePanel from '@/components/SidePanel';
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isListening, setIsListening] = useState(false);
-  const [showLayerImage, setShowLayerImage] = useState(false);
 
   const handleMicClick = () => {
     setIsListening(!isListening);
-  };
-
-  const handleTurnOn = () => {
-    setShowLayerImage(true);
   };
 
   const renderContent = () => {
@@ -55,30 +50,49 @@ const Index = () => {
         );
       case 'ui':
         return (
-          <div className="flex flex-col items-center justify-center min-h-[80vh] relative">
-            <div className="w-full max-w-4xl mx-auto p-4 space-y-8">
+          <div className="flex items-center justify-center min-h-[80vh] relative">
+            <div className="relative">
+              {/* Outer ring animation */}
+              <div className={`absolute inset-0 rounded-full ${
+                isListening ? 'bg-dashboard-accent1/20 animate-pulse-ring' : ''
+              }`} />
+              
+              {/* Middle ring animation */}
+              <div className={`absolute inset-2 rounded-full ${
+                isListening ? 'bg-dashboard-accent1/30 animate-pulse-ring [animation-delay:0.4s]' : ''
+              }`} />
+              
+              {/* Inner ring animation */}
+              <div className={`absolute inset-4 rounded-full ${
+                isListening ? 'bg-dashboard-accent1/40 animate-pulse-ring [animation-delay:0.8s]' : ''
+              }`} />
+              
+              {/* Main button */}
               <button
-                onClick={handleTurnOn}
-                className="relative z-10 p-8 rounded-xl transition-all duration-500 transform hover:scale-105 bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50 flex flex-col items-center gap-4 w-full max-w-md mx-auto"
+                onClick={handleMicClick}
+                className={`relative z-10 p-12 rounded-full transition-all duration-500 transform hover:scale-105 ${
+                  isListening 
+                    ? 'bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50' 
+                    : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
+                }`}
               >
-                <Mic2 
-                  className="w-12 h-12 animate-bounce"
-                />
-                <span className="text-xl font-medium">Turn On</span>
-                <p className="text-sm text-white/80">
-                  Click to view the layer architecture
-                </p>
+                <Mic2 className={`w-16 h-16 transition-transform duration-300 ${
+                  isListening ? 'scale-110' : 'scale-100'
+                }`} />
               </button>
-
-              {showLayerImage && (
-                <div className="w-full mt-8">
-                  <img 
-                    src="/lovable-uploads/ee22e848-8472-4ac9-821b-a73bd635f37f.png" 
-                    alt="AI Layer Architecture"
-                    className="w-full h-auto rounded-lg shadow-lg"
-                  />
-                </div>
-              )}
+            </div>
+            
+            <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${
+              isListening ? 'opacity-100' : 'opacity-70'
+            }`}>
+              <p className="text-xl font-medium text-center">
+                {isListening ? 'Listening...' : 'Click to start speaking'}
+              </p>
+              <p className="mt-2 text-dashboard-muted text-center">
+                {isListening 
+                  ? 'Speak clearly into your microphone' 
+                  : 'Tap the microphone to begin'}
+              </p>
             </div>
           </div>
         );
@@ -154,7 +168,7 @@ const Index = () => {
           <>
             <header className="mb-8">
               <h1 className="text-3xl font-medium mb-2">Every Business is a Set of Scenarios</h1>
-              <p className="text-dashboard-muted">MetaAgent is a central AI orchestration layer where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine predefined expert scenarios with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.</p>
+              <p className="text-dashboard-muted">Configure your application settings</p>
             </header>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="dashboard-card">
@@ -223,7 +237,7 @@ const Index = () => {
       </div>
 
       {/* Main Content */}
-      <div className="pt-16 pb-20">
+      <div className="pt-16 pb-20"> {/* Added padding-top to account for the fixed header */}
         <SidePanel onTabChange={setActiveTab} />
         <div className="pl-0 md:pl-64">
           <div className="p-4 md:p-8">
