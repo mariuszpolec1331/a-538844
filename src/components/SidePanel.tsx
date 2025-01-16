@@ -11,7 +11,7 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
       <div className="p-4 md:p-6">
         <h2 className="text-lg md:text-xl font-medium mb-4 md:mb-6 hidden md:block">Navigation</h2>
         <Tabs 
-          defaultValue="dashboard" 
+          defaultValue="ui" 
           orientation="horizontal"
           className="w-full"
           onValueChange={onTabChange}
@@ -33,9 +33,9 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
             </TabsTrigger>
             <TabsTrigger 
               value="ui" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all relative overflow-hidden before:absolute before:inset-0 before:bg-dashboard-accent1/20 before:animate-pulse-ring"
             >
-              <Mic2 className="w-4 h-4" />
+              <Mic2 className="w-4 h-4 animate-bounce" />
               <span className="hidden md:inline">UI</span>
             </TabsTrigger>
             <TabsTrigger 
