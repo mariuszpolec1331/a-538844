@@ -100,7 +100,7 @@ const Index = () => {
         return (
           <>
             <header className="mb-8">
-              <h1 className="text-3xl font-medium mb-2">Users</h1>
+              <h1 className="text-3xl font-medium mb-2">You set the goal, MetaAgent delivers</h1>
               <p className="text-dashboard-muted">Manage your users and their permissions</p>
             </header>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
