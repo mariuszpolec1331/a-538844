@@ -19,8 +19,6 @@ const Index = () => {
     setShowTopLayerImage(checked);
   };
 
-  // ... keep existing code (renderContent dashboard and ui cases)
-
   const renderContent = () => {
     switch (activeTab) {
       case 'dashboard':
@@ -187,21 +185,21 @@ const Index = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium">Top Layer</p>
-                      <p className="text-sm text-gray-400">Configure top layer settings</p>
+                      <p className="text-sm text-gray-400">Layer that defines the operations and outcomes of AI-powered systems.</p>
                     </div>
                     <Switch onCheckedChange={handleTopLayerToggle} />
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium">Middle Layer</p>
-                      <p className="text-sm text-gray-400">Configure middle layer settings</p>
+                      <p className="text-sm text-gray-400">Agent Orchestration Layer</p>
                     </div>
                     <Switch />
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium">Bottom Layer</p>
-                      <p className="text-sm text-gray-400">Configure bottom layer settings</p>
+                      <p className="text-sm text-gray-400">Agent Infrastructure Layer</p>
                     </div>
                     <Switch />
                   </div>
