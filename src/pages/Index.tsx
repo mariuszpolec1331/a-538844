@@ -167,7 +167,7 @@ const Index = () => {
         return (
           <>
             <header className="mb-8">
-              <h1 className="text-3xl font-medium mb-2">Settings</h1>
+              <h1 className="text-3xl font-medium mb-2">Every Business is a Set of Scenarios</h1>
               <p className="text-dashboard-muted">Configure your application settings</p>
             </header>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
