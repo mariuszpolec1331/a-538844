@@ -56,55 +56,30 @@ const Index = () => {
       case 'ui':
         return (
           <div className="flex flex-col items-center justify-center min-h-[80vh] relative">
-            {showLayerImage ? (
-              <div className="w-full max-w-4xl mx-auto p-4">
-                <img 
-                  src="/lovable-uploads/ee22e848-8472-4ac9-821b-a73bd635f37f.png" 
-                  alt="AI Layer Architecture"
-                  className="w-full h-auto rounded-lg shadow-lg"
+            <div className="w-full max-w-4xl mx-auto p-4 space-y-8">
+              <button
+                onClick={handleTurnOn}
+                className="relative z-10 p-8 rounded-xl transition-all duration-500 transform hover:scale-105 bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50 flex flex-col items-center gap-4 w-full max-w-md mx-auto"
+              >
+                <Mic2 
+                  className="w-12 h-12 animate-bounce"
                 />
-              </div>
-            ) : (
-              <>
-                <div className="relative">
-                  <div className={`absolute inset-0 rounded-full ${
-                    isListening ? 'bg-dashboard-accent1/20 animate-pulse-ring' : ''
-                  }`} />
-                  
-                  <div className={`absolute inset-2 rounded-full ${
-                    isListening ? 'bg-dashboard-accent1/30 animate-pulse-ring [animation-delay:0.4s]' : ''
-                  }`} />
-                  
-                  <div className={`absolute inset-4 rounded-full ${
-                    isListening ? 'bg-dashboard-accent1/40 animate-pulse-ring [animation-delay:0.8s]' : ''
-                  }`} />
-                  
-                  <button
-                    onClick={handleTurnOn}
-                    className={`relative z-10 p-12 rounded-full transition-all duration-500 transform hover:scale-105 ${
-                      isListening 
-                        ? 'bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50' 
-                        : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
-                    }`}
-                  >
-                    <Mic2 
-                      className={`w-16 h-16 transition-transform duration-300 ${
-                        isListening ? 'scale-110' : 'scale-100'
-                      }`} 
-                    />
-                  </button>
+                <span className="text-xl font-medium">Turn On</span>
+                <p className="text-sm text-white/80">
+                  Click to view the layer architecture
+                </p>
+              </button>
+
+              {showLayerImage && (
+                <div className="w-full mt-8">
+                  <img 
+                    src="/lovable-uploads/ee22e848-8472-4ac9-821b-a73bd635f37f.png" 
+                    alt="AI Layer Architecture"
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
                 </div>
-                
-                <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${
-                  isListening ? 'opacity-100' : 'opacity-70'
-                }`}>
-                  <p className="text-xl font-medium text-center">Turn On</p>
-                  <p className="mt-2 text-dashboard-muted text-center">
-                    Click to view the layer architecture
-                  </p>
-                </div>
-              </>
-            )}
+              )}
+            </div>
           </div>
         );
       case 'users':
@@ -248,7 +223,7 @@ const Index = () => {
       </div>
 
       {/* Main Content */}
-      <div className="pt-16 pb-20"> {/* Added padding-top to account for the fixed header */}
+      <div className="pt-16 pb-20">
         <SidePanel onTabChange={setActiveTab} />
         <div className="pl-0 md:pl-64">
           <div className="p-4 md:p-8">
