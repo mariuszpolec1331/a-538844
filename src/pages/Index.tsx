@@ -232,16 +232,12 @@ const Index = () => {
       {/* Persistent Top Bar */}
       <div className="fixed top-0 left-0 right-0 bg-dashboard-dark/80 backdrop-blur-lg z-50 border-b border-white/10">
         <div className="container mx-auto px-4 py-4">
-          <img 
-            src="/meta-agent-logo.png" 
-            alt="META AGENT" 
-            className="h-8 md:h-10 mx-auto"
-          />
+          <h1 className="text-2xl font-bold text-white text-center">META AGENT</h1>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="pt-16 pb-20">
+      <div className="pt-16 pb-20"> {/* Added padding-top to account for the fixed header */}
         <SidePanel onTabChange={setActiveTab} />
         <div className="pl-0 md:pl-64">
           <div className="p-4 md:p-8">
