@@ -174,20 +174,27 @@ const Index = () => {
               <div className="dashboard-card">
                 <div className="flex items-center gap-3 mb-4">
                   <Bell className="w-5 h-5 text-yellow-400" />
-                  <h2 className="text-xl font-medium">Notifications</h2>
+                  <h2 className="text-xl font-medium">Layers</h2>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium">Email Notifications</p>
-                      <p className="text-sm text-gray-400">Receive email updates</p>
+                      <p className="font-medium">Top Layer</p>
+                      <p className="text-sm text-gray-400">Configure top layer settings</p>
                     </div>
                     <Switch />
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium">Push Notifications</p>
-                      <p className="text-sm text-gray-400">Receive push notifications</p>
+                      <p className="font-medium">Middle Layer</p>
+                      <p className="text-sm text-gray-400">Configure middle layer settings</p>
+                    </div>
+                    <Switch />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-medium">Bottom Layer</p>
+                      <p className="text-sm text-gray-400">Configure bottom layer settings</p>
                     </div>
                     <Switch />
                   </div>
