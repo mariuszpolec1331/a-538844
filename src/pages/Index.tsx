@@ -59,7 +59,7 @@ const Index = () => {
             {showLayerImage ? (
               <div className="w-full max-w-4xl mx-auto p-4">
                 <img 
-                  src="/lovable-uploads/991435bd-ee4f-46bd-aa72-d21fb72b8bd7.png" 
+                  src="/lovable-uploads/ee22e848-8472-4ac9-821b-a73bd635f37f.png" 
                   alt="AI Layer Architecture"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
@@ -87,9 +87,12 @@ const Index = () => {
                         : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
                     }`}
                   >
-                    <Mic2 className={`w-16 h-16 transition-transform duration-300 ${
-                      isListening ? 'scale-110' : 'scale-100'
-                    }`} />
+                    <Mic2 
+                      className={`w-16 h-16 transition-transform duration-300 ${
+                        isListening ? 'scale-110' : 'scale-100'
+                      }`} 
+                      onClick={handleMicClick}
+                    />
                   </button>
                 </div>
                 
