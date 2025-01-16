@@ -9,10 +9,17 @@ import SidePanel from '@/components/SidePanel';
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isListening, setIsListening] = useState(false);
+  const [showTopLayerImage, setShowTopLayerImage] = useState(false);
 
   const handleMicClick = () => {
     setIsListening(!isListening);
   };
+
+  const handleTopLayerToggle = (checked: boolean) => {
+    setShowTopLayerImage(checked);
+  };
+
+  // ... keep existing code (renderContent dashboard and ui cases)
 
   const renderContent = () => {
     switch (activeTab) {
@@ -182,7 +189,7 @@ const Index = () => {
                       <p className="font-medium">Top Layer</p>
                       <p className="text-sm text-gray-400">Configure top layer settings</p>
                     </div>
-                    <Switch />
+                    <Switch onCheckedChange={handleTopLayerToggle} />
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
@@ -199,6 +206,15 @@ const Index = () => {
                     <Switch />
                   </div>
                 </div>
+                {showTopLayerImage && (
+                  <div className="mt-6">
+                    <img 
+                      src="/lovable-uploads/223bba23-7273-4e04-b02a-269086de984b.png" 
+                      alt="Top Layer Diagram"
+                      className="w-full rounded-lg border border-white/10 transition-all duration-300 animate-fade-in"
+                    />
+                  </div>
+                )}
               </div>
               <div className="dashboard-card">
                 <div className="flex items-center gap-3 mb-4">
