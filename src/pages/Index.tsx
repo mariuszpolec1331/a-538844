@@ -91,7 +91,6 @@ const Index = () => {
                       className={`w-16 h-16 transition-transform duration-300 ${
                         isListening ? 'scale-110' : 'scale-100'
                       }`} 
-                      onClick={handleMicClick}
                     />
                   </button>
                 </div>
