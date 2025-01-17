@@ -57,7 +57,7 @@ const UITab = () => {
         isListening ? 'opacity-100' : 'opacity-70'
       }`}>
         <p className="text-xl font-medium text-dashboard-text text-center">
-          {isListening ? 'Thinking...' : 'Click to Start Speaking'}
+          {isListening ? 'Set your goals...' : 'Click to Start Speaking'}
         </p>
         <p className="mt-2 text-dashboard-muted text-center">
           {isListening 
