@@ -28,7 +28,7 @@ const Index = () => {
               Welcome to MetaAgent
             </h1>
             <p className="text-lg leading-relaxed text-gray-300 mb-8">
-              MetaAgent is a central AI orchestration layer where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine predefined expert scenarios with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
+              MetaAgent is a central AI <strong>orchestration layer</strong> where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine <strong>predefined expert scenarios</strong> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
             </p>
             <div className="w-full flex justify-center">
               <img 
