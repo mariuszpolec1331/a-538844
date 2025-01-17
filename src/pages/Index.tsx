@@ -37,7 +37,20 @@ const Index = () => {
       {/* Persistent Top Bar */}
       <div className="fixed top-0 left-0 right-0 bg-dashboard-dark/80 backdrop-blur-lg z-50 border-b border-white/10">
         <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-white text-center"></h1>
+          <div className="flex justify-center gap-8 md:gap-12">
+            <div className="flex flex-col items-center">
+              <span className="text-lg md:text-xl font-semibold text-white">1,350</span>
+              <span className="text-xs md:text-sm text-dashboard-text">AI Agents</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-lg md:text-xl font-semibold text-white">653</span>
+              <span className="text-xs md:text-sm text-dashboard-text">AI Experts</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-lg md:text-xl font-semibold text-white">340</span>
+              <span className="text-xs md:text-sm text-dashboard-text">Scenarios</span>
+            </div>
+          </div>
         </div>
       </div>
 
