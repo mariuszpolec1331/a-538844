@@ -2,7 +2,6 @@ import { useState } from 'react';
 import IntroTab from '@/components/tabs/IntroTab';
 import DashboardTab from '@/components/tabs/DashboardTab';
 import UITab from '@/components/tabs/UITab';
-import UsersTab from '@/components/tabs/UsersTab';
 import SettingsTab from '@/components/tabs/SettingsTab';
 import NewTab from '@/components/tabs/NewTab';
 import GTMTab from '@/components/tabs/GTMTab';
@@ -19,8 +18,6 @@ const Index = () => {
         return 'Dashboard';
       case 'ui':
         return 'UI';
-      case 'users':
-        return 'Users';
       case 'settings':
         return 'Layers';
       case 'new':
@@ -40,8 +37,6 @@ const Index = () => {
         return <DashboardTab />;
       case 'ui':
         return <UITab />;
-      case 'users':
-        return <UsersTab />;
       case 'settings':
         return <SettingsTab />;
       case 'new':

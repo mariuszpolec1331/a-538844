@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LayoutDashboard, Settings, Users, Mic2, Info, Plus, GitMerge, ChevronRight } from "lucide-react";
+import { LayoutDashboard, Settings, Mic2, Info, Plus, GitMerge, ChevronRight } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 
 interface SidePanelProps {
@@ -13,7 +13,6 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
   const checkScroll = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      // Show indicator if we're not at the end
       setShowRightIndicator(scrollLeft + clientWidth < scrollWidth - 10);
     }
   };
@@ -72,13 +71,6 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
               >
                 <LayoutDashboard className="w-4 h-4" />
                 <span className="hidden md:inline">Dashboard</span>
-              </TabsTrigger>
-              <TabsTrigger 
-                value="users" 
-                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
-              >
-                <Users className="w-4 h-4" />
-                <span className="hidden md:inline">Users</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="ui" 
