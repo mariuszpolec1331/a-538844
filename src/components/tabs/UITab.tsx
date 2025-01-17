@@ -37,6 +37,15 @@ const UITab = () => {
 
   return (
     <div className="flex items-center justify-center min-h-[80vh] relative">
+      {/* Timer at the top */}
+      {isListening && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2">
+          <p className="text-sm font-mono text-dashboard-accent1">
+            {formatTime(time)}
+          </p>
+        </div>
+      )}
+      
       <div className="relative">
         {/* Pre-click subtle animations */}
         {!isListening && (
@@ -86,11 +95,6 @@ const UITab = () => {
         <p className="text-xl font-medium text-dashboard-text text-center">
           {isListening ? 'Set your goals...' : 'Click to Start Speaking'}
         </p>
-        {isListening && (
-          <p className="text-2xl font-bold text-dashboard-accent1 mt-2 text-center">
-            {formatTime(time)}
-          </p>
-        )}
         <p className="mt-2 text-dashboard-muted text-center">
           {isListening 
             ? 'Processing your voice input with advanced AI' 
