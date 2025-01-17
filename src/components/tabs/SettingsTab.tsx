@@ -6,7 +6,6 @@ const SettingsTab = () => {
   const [showTopLayerImage, setShowTopLayerImage] = useState(false);
   const [showMiddleLayerImage, setShowMiddleLayerImage] = useState(false);
   const [showBottomLayerImage, setShowBottomLayerImage] = useState(false);
-  const [imageScale, setImageScale] = useState(1);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   const handleTopLayerToggle = (checked: boolean) => {
@@ -32,8 +31,11 @@ const SettingsTab = () => {
   return (
     <>
       <header className="mb-8">
-        <h1 className="text-3xl font-medium mb-2">Every Business is a Set of Scenarios</h1>
-        <p className="text-dashboard-muted">Configure your application settings</p>
+        <img 
+          src="/lovable-uploads/f441852a-7463-4997-af53-c0e0f8ca0c1c.png" 
+          alt="How to achieve business goals"
+          className="w-full max-w-2xl mx-auto h-auto rounded-lg mb-6"
+        />
       </header>
       <div className="w-full">
         <div className="dashboard-card">
