@@ -21,7 +21,7 @@ const CustomerRequests = () => {
     const centerY = 50; // center percentage
     const radius = 25; // reduced radius to ensure markers stay within radar bounds
 
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 160; i++) { // Increased from 80 to 160
       // Generate random angle and distance from center
       const angle = Math.random() * 2 * Math.PI;
       // Scale the distance based on the corresponding data value
