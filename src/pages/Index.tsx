@@ -28,7 +28,7 @@ const Index = () => {
               Welcome to MetaAgent
             </h1>
             <p className="text-lg leading-relaxed text-gray-300 mb-8">
-              MetaAgent is a central AI <span style={{ color: '#44bcd8' }}>orchestration layer</span> where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine <span style={{ color: '#44bcd8' }}>predefined expert scenarios</span> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
+              MetaAgent is a central AI <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>orchestration layer</span> where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>predefined expert scenarios</span> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
             </p>
             <div className="w-full flex justify-center">
               <img 
