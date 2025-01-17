@@ -1,8 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mic2, Circle } from 'lucide-react';
 
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    
+    if (isListening) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else {
+      setTime(0);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [isListening]);
+
+  const formatTime = (seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  };
 
   const handleMicClick = () => {
     setIsListening(!isListening);
@@ -59,6 +86,11 @@ const UITab = () => {
         <p className="text-xl font-medium text-dashboard-text text-center">
           {isListening ? 'Set your goals...' : 'Click to Start Speaking'}
         </p>
+        {isListening && (
+          <p className="text-2xl font-bold text-dashboard-accent1 mt-2 text-center">
+            {formatTime(time)}
+          </p>
+        )}
         <p className="mt-2 text-dashboard-muted text-center">
           {isListening 
             ? 'Processing your voice input with advanced AI' 
