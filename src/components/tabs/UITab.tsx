@@ -97,7 +97,7 @@ const UITab = () => {
         </p>
         <p className="mt-2 text-dashboard-muted text-center">
           {isListening 
-            ? 'Processing your voice input with advanced AI' 
+            ? 'identifying and activating the scenario' 
             : 'Tap the microphone to begin your conversation'}
         </p>
       </div>
