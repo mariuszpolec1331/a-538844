@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Mic2, Circle, Wallet } from 'lucide-react';
+import { Mic2, Circle } from 'lucide-react';
 
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
   const [time, setTime] = useState(0);
-  const [tokens, setTokens] = useState(1000); // Mock initial tokens
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -46,14 +45,6 @@ const UITab = () => {
           </p>
         </div>
       )}
-
-      {/* Wallet display */}
-      <div className="absolute top-4 right-4 flex items-center gap-2 glass-card px-3 py-2">
-        <Wallet className="w-4 h-4 text-dashboard-muted" />
-        <span className="text-sm font-mono text-dashboard-muted">
-          {tokens} TOKENS
-        </span>
-      </div>
       
       <div className="relative">
         {/* Pre-click subtle animations */}
