@@ -1,37 +1,13 @@
-import { useState } from 'react';
 import IntroTab from '@/components/tabs/IntroTab';
 import DashboardTab from '@/components/tabs/DashboardTab';
 import UITab from '@/components/tabs/UITab';
 import UsersTab from '@/components/tabs/UsersTab';
-import SettingsTab from '@/components/tabs/SettingsTab';
-import NewTab from '@/components/tabs/NewTab';
+import LayersTab from '@/components/tabs/LayersTab';
+import KillerFeatureTab from '@/components/tabs/KillerFeatureTab';
 import GTMTab from '@/components/tabs/GTMTab';
 import SidePanel from '@/components/SidePanel';
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState('intro');
-
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'intro':
-        return <IntroTab />;
-      case 'dashboard':
-        return <DashboardTab />;
-      case 'ui':
-        return <UITab />;
-      case 'users':
-        return <UsersTab />;
-      case 'settings':
-        return <SettingsTab />;
-      case 'new':
-        return <NewTab />;
-      case 'gtm':
-        return <GTMTab />;
-      default:
-        return <IntroTab />;
-    }
-  };
-
   return (
     <div className="min-h-screen relative">
       {/* Persistent Top Bar */}
@@ -43,10 +19,9 @@ const Index = () => {
 
       {/* Main Content */}
       <div className="pt-16 pb-20">
-        <SidePanel onTabChange={setActiveTab} />
+        <SidePanel />
         <div className="pl-0 md:pl-64">
           <div className="p-4 md:p-8">
-            {renderContent()}
           </div>
         </div>
       </div>
