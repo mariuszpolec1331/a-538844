@@ -1,13 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import IntroTab from '@/components/tabs/IntroTab';
 import DashboardTab from '@/components/tabs/DashboardTab';
 import UITab from '@/components/tabs/UITab';
 import SettingsTab from '@/components/tabs/SettingsTab';
 import NewTab from '@/components/tabs/NewTab';
 import SidePanel from '@/components/SidePanel';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/components/ui/use-toast';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('intro');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const { toast } = useToast();
+
+  const handlePasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === 'metaagent') {
+      setIsAuthenticated(true);
+      toast({
+        title: "Access granted",
+        description: "Welcome to MetaAgent portal",
+      });
+    } else {
+      toast({
+        title: "Access denied",
+        description: "Invalid password",
+        variant: "destructive",
+      });
+    }
+  };
 
   const getTabName = (tab: string) => {
     switch (tab) {
@@ -42,6 +65,31 @@ const Index = () => {
         return <IntroTab />;
     }
   };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-dashboard-dark p-4">
+        <div className="w-full max-w-md space-y-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-white">MetaAgent Portal</h2>
+            <p className="mt-2 text-sm text-gray-400">Please enter the access code to continue</p>
+          </div>
+          <form onSubmit={handlePasswordSubmit} className="mt-8 space-y-4">
+            <Input
+              type="password"
+              placeholder="Enter access code"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full"
+            />
+            <Button type="submit" className="w-full">
+              Access Portal
+            </Button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen relative">
