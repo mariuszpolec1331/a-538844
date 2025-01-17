@@ -1,7 +1,7 @@
 const NewTab = () => {
   return (
     <div className="space-y-8 max-w-3xl">
-      <h2 className="text-3xl font-bold text-dashboard-text">Killer Feature</h2>
+      <h2 className="text-3xl font-bold text-dashboard-text"></h2>
       <div className="space-y-6 text-lg leading-relaxed">
         <p className="text-dashboard-text">
           A scenario is a ready, <span className="font-bold">verified "recipe"</span> for solving a specific business problem. It works like navigation - you don't need to know the route or understand the technology, just state where you want to go. MetaAgent selects appropriate AI agents and experts, then guides you step by step to your goal.
