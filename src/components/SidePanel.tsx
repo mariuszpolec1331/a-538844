@@ -25,6 +25,20 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
               <span className="hidden md:inline">Intro</span>
             </TabsTrigger>
             <TabsTrigger 
+              value="settings" 
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
+            >
+              <Settings className="w-4 h-4" />
+              <span className="hidden md:inline">Layers</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="new" 
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
+            >
+              <Plus className="w-4 h-4" />
+              <span className="hidden md:inline">Killer Feature</span>
+            </TabsTrigger>
+            <TabsTrigger 
               value="dashboard" 
               className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
             >
@@ -44,20 +58,6 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
             >
               <Mic2 className="w-4 h-4 animate-bounce" />
               <span className="hidden md:inline">UI</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="settings" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
-            >
-              <Settings className="w-4 h-4" />
-              <span className="hidden md:inline">Layers</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="new" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
-            >
-              <Plus className="w-4 h-4" />
-              <span className="hidden md:inline">Killer Feature</span>
             </TabsTrigger>
           </TabsList>
         </Tabs>
