@@ -14,17 +14,20 @@ const data = [
 const colors = ['#FF6B6B', '#61AAF2', '#FFD93D']; // red, blue, yellow
 
 const CustomerRequests = () => {
-  // Generate random positions for 'x' symbols within a circle
+  // Generate random positions for 'x' symbols within the radar chart
   const generateRandomMarkers = () => {
     const markers = [];
     const centerX = 50; // center percentage
     const centerY = 50; // center percentage
-    const radius = 35; // percentage of container
+    const radius = 25; // reduced radius to ensure markers stay within radar bounds
 
     for (let i = 0; i < 80; i++) {
       // Generate random angle and distance from center
       const angle = Math.random() * 2 * Math.PI;
-      const distance = Math.random() * radius;
+      // Scale the distance based on the corresponding data value
+      const sectionIndex = Math.floor((angle / (2 * Math.PI)) * data.length);
+      const maxDistance = (data[sectionIndex].value / 100) * radius;
+      const distance = Math.random() * maxDistance;
       
       // Convert polar coordinates to cartesian
       const x = centerX + distance * Math.cos(angle);
