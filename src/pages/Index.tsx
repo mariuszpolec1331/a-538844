@@ -66,32 +66,7 @@ const Index = () => {
     }
   };
 
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-dashboard-dark p-4">
-        <div className="w-full max-w-md space-y-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-white">MetaAgent Portal</h2>
-            <p className="mt-2 text-sm text-gray-400">Please enter the access code to continue</p>
-          </div>
-          <form onSubmit={handlePasswordSubmit} className="mt-8 space-y-4">
-            <Input
-              type="password"
-              placeholder="Enter access code"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full"
-            />
-            <Button type="submit" className="w-full">
-              Access Portal
-            </Button>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
-  return (
+  const MainContent = () => (
     <div className="min-h-screen relative">
       {/* Persistent Top Bar */}
       <div className="fixed top-0 left-0 right-0 bg-dashboard-dark/80 backdrop-blur-lg z-50 border-b border-white/10">
@@ -118,6 +93,40 @@ const Index = () => {
           </p>
         </div>
       </div>
+    </div>
+  );
+
+  return (
+    <div className="relative">
+      {!isAuthenticated ? (
+        <div className="min-h-screen flex items-center justify-center bg-dashboard-dark p-4">
+          <div className="w-full max-w-md space-y-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-white">Meta Agent Dataset</h2>
+              <p className="mt-2 text-sm text-gray-400">Please enter the access code to continue</p>
+            </div>
+            <form onSubmit={handlePasswordSubmit} className="mt-8 space-y-4">
+              <Input
+                type="password"
+                placeholder="Enter access code"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full"
+              />
+              <Button type="submit" className="w-full">
+                Access Data
+              </Button>
+            </form>
+          </div>
+          <div className="absolute inset-0 z-[-1]">
+            <div className="filter blur-md">
+              <MainContent />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <MainContent />
+      )}
     </div>
   );
 };
