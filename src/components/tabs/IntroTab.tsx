@@ -7,7 +7,7 @@ const IntroTab = () => {
         Welcome to MetaAgent
       </h1>
       <p className="text-lg leading-relaxed text-gray-300 mb-8">
-        MetaAgent is a central AI <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>orchestration layer</span> where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>predefined expert scenarios</span> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
+        MetaAgent is a central AI orchestration layer where <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>industry experts</span> and <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>intelligent AI agents</span> co-create and transform businesses into autonomous organizations. We combine <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>predefined expert scenarios</span> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
       </p>
       <div className="w-full flex justify-center mb-12">
         <img 
@@ -20,7 +20,7 @@ const IntroTab = () => {
       <div className="space-y-6">
         <h2 className="text-2xl font-bold text-white">Our Mission</h2>
         <p className="text-lg leading-relaxed text-gray-300">
-          We compose and orchestrate teams of intelligent AI agents tailored to your business. Our system instantly matches the best agents to tasks, synchronizes their cooperation, and ensures peak performance, while industry experts maintain strategic oversight. It's like having your own AI super-team under the watchful eye of the best coaches.
+          We compose and orchestrate teams of <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>intelligent AI agents</span> tailored to your business. Our system instantly matches the best agents to tasks, synchronizes their cooperation, and ensures peak performance, while <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>industry experts</span> maintain strategic oversight. It's like having your own AI super-team under the watchful eye of the best coaches.
         </p>
         <p className="text-lg leading-relaxed text-gray-300 font-semibold">
           We combine human expertise with advanced automation
