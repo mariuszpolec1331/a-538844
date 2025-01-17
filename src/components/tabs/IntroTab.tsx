@@ -3,11 +3,11 @@ import React from 'react';
 const IntroTab = () => {
   return (
     <div className="max-w-4xl mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+      <h1 className="text-3xl font-bold mb-6 text-dashboard-text">
         Welcome to MetaAgent
       </h1>
-      <p className="text-lg leading-relaxed text-gray-300 mb-8">
-        MetaAgent is a central AI orchestration layer where <span className="font-bold text-dashboard-accent1">industry experts</span> and <span className="font-bold text-dashboard-accent1">intelligent AI agents</span> co-create and transform businesses into autonomous organizations. We combine <span className="font-bold text-dashboard-accent1">predefined expert scenarios</span> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
+      <p className="text-lg leading-relaxed text-dashboard-text mb-8">
+        MetaAgent is a central AI orchestration layer where <span className="font-bold">industry experts</span> and <span className="font-bold">intelligent AI agents</span> co-create and transform businesses into autonomous organizations. We combine <span className="font-bold">predefined expert scenarios</span> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
       </p>
       <div className="w-full flex justify-center mb-12">
         <img 
@@ -18,11 +18,11 @@ const IntroTab = () => {
       </div>
       
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-white">Our Mission</h2>
-        <p className="text-lg leading-relaxed text-gray-300">
-          We compose and orchestrate teams of <span className="font-bold text-dashboard-accent1">intelligent AI agents</span> tailored to your business. Our system instantly matches the best agents to tasks, synchronizes their cooperation, and ensures peak performance, while <span className="font-bold text-dashboard-accent1">industry experts</span> maintain strategic oversight. It's like having your own AI super-team under the watchful eye of the best coaches.
+        <h2 className="text-2xl font-bold text-dashboard-text">Our Mission</h2>
+        <p className="text-lg leading-relaxed text-dashboard-text">
+          We compose and orchestrate teams of <span className="font-bold">intelligent AI agents</span> tailored to your business. Our system instantly matches the best agents to tasks, synchronizes their cooperation, and ensures peak performance, while <span className="font-bold">industry experts</span> maintain strategic oversight. It's like having your own AI super-team under the watchful eye of the best coaches.
         </p>
-        <p className="text-lg leading-relaxed text-gray-300 font-semibold">
+        <p className="text-lg leading-relaxed text-dashboard-text font-semibold">
           We combine human expertise with advanced automation
         </p>
       </div>

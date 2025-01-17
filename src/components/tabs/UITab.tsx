@@ -12,23 +12,23 @@ const UITab = () => {
     <div className="flex items-center justify-center min-h-[80vh] relative">
       <div className="relative">
         <div className={`absolute inset-0 rounded-full ${
-          isListening ? 'bg-dashboard-accent1/20 animate-pulse-ring' : ''
+          isListening ? 'bg-dashboard-text/20 animate-pulse-ring' : ''
         }`} />
         
         <div className={`absolute inset-2 rounded-full ${
-          isListening ? 'bg-dashboard-accent1/30 animate-pulse-ring [animation-delay:0.4s]' : ''
+          isListening ? 'bg-dashboard-text/30 animate-pulse-ring [animation-delay:0.4s]' : ''
         }`} />
         
         <div className={`absolute inset-4 rounded-full ${
-          isListening ? 'bg-dashboard-accent1/40 animate-pulse-ring [animation-delay:0.8s]' : ''
+          isListening ? 'bg-dashboard-text/40 animate-pulse-ring [animation-delay:0.8s]' : ''
         }`} />
         
         <button
           onClick={handleMicClick}
           className={`relative z-10 p-12 rounded-full transition-all duration-500 transform hover:scale-105 ${
             isListening 
-              ? 'bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50' 
-              : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
+              ? 'bg-dashboard-text text-dashboard-dark shadow-lg shadow-dashboard-text/50' 
+              : 'bg-dashboard-card hover:bg-dashboard-text/20'
           }`}
         >
           <Mic2 className={`w-16 h-16 transition-transform duration-300 ${
@@ -40,7 +40,7 @@ const UITab = () => {
       <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${
         isListening ? 'opacity-100' : 'opacity-70'
       }`}>
-        <p className="text-xl font-medium text-center">
+        <p className="text-xl font-medium text-dashboard-text text-center">
           {isListening ? 'Listening...' : 'Click to start speaking'}
         </p>
         <p className="mt-2 text-dashboard-muted text-center">
