@@ -11,6 +11,12 @@ const UITab = () => {
   return (
     <div className="flex items-center justify-center min-h-[80vh] relative">
       <div className="relative">
+        {/* Pre-click subtle animations */}
+        {!isListening && (
+          <div className="absolute -inset-4 rounded-full bg-dashboard-text/5 animate-pulse-ring-3" />
+        )}
+        
+        {/* Post-click metaverse animations */}
         {isListening && (
           <>
             <div className="absolute -inset-8 rounded-full bg-dashboard-accent1/20 animate-pulse-ring-1" />
@@ -22,7 +28,7 @@ const UITab = () => {
               {[...Array(8)].map((_, index) => (
                 <Circle
                   key={index}
-                  className={`absolute w-4 h-4 text-dashboard-text/30 animate-pulse`}
+                  className="absolute w-4 h-4 text-dashboard-text/30"
                   style={{
                     animation: `pulse ${4 + index * 0.5}s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
                     transform: `rotate(${index * 45}deg) translateX(${120}px)`
@@ -51,11 +57,11 @@ const UITab = () => {
         isListening ? 'opacity-100' : 'opacity-70'
       }`}>
         <p className="text-xl font-medium text-dashboard-text text-center">
-          {isListening ? 'AI Assistant is Listening...' : 'Click to Start Speaking'}
+          {isListening ? 'Thinking...' : 'Click to Start Speaking'}
         </p>
         <p className="mt-2 text-dashboard-muted text-center">
           {isListening 
-            ? 'Speak naturally - AI is processing your voice' 
+            ? 'Processing your voice input with advanced AI' 
             : 'Tap the microphone to begin your conversation'}
         </p>
       </div>
