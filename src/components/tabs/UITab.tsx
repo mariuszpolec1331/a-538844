@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mic2 } from 'lucide-react';
+import { Mic2, Circle } from 'lucide-react';
 
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
@@ -11,17 +11,27 @@ const UITab = () => {
   return (
     <div className="flex items-center justify-center min-h-[80vh] relative">
       <div className="relative">
-        <div className={`absolute inset-0 rounded-full ${
-          isListening ? 'bg-dashboard-text/20 animate-pulse-ring' : ''
-        }`} />
-        
-        <div className={`absolute inset-2 rounded-full ${
-          isListening ? 'bg-dashboard-text/30 animate-pulse-ring [animation-delay:0.4s]' : ''
-        }`} />
-        
-        <div className={`absolute inset-4 rounded-full ${
-          isListening ? 'bg-dashboard-text/40 animate-pulse-ring [animation-delay:0.8s]' : ''
-        }`} />
+        {isListening && (
+          <>
+            <div className="absolute -inset-8 rounded-full bg-dashboard-accent1/20 animate-pulse-ring-1" />
+            <div className="absolute -inset-16 rounded-full bg-dashboard-accent2/20 animate-pulse-ring-2" />
+            <div className="absolute -inset-24 rounded-full bg-dashboard-accent3/20 animate-pulse-ring-3" />
+            
+            {/* Circular wave indicators */}
+            <div className="absolute -inset-32 flex items-center justify-center">
+              {[...Array(8)].map((_, index) => (
+                <Circle
+                  key={index}
+                  className={`absolute w-4 h-4 text-dashboard-text/30 animate-pulse`}
+                  style={{
+                    animation: `pulse ${4 + index * 0.5}s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
+                    transform: `rotate(${index * 45}deg) translateX(${120}px)`
+                  }}
+                />
+              ))}
+            </div>
+          </>
+        )}
         
         <button
           onClick={handleMicClick}
@@ -41,12 +51,12 @@ const UITab = () => {
         isListening ? 'opacity-100' : 'opacity-70'
       }`}>
         <p className="text-xl font-medium text-dashboard-text text-center">
-          {isListening ? 'Listening...' : 'Click to start speaking'}
+          {isListening ? 'AI Assistant is Listening...' : 'Click to Start Speaking'}
         </p>
         <p className="mt-2 text-dashboard-muted text-center">
           {isListening 
-            ? 'Speak clearly into your microphone' 
-            : 'Tap the microphone to begin'}
+            ? 'Speak naturally - AI is processing your voice' 
+            : 'Tap the microphone to begin your conversation'}
         </p>
       </div>
     </div>
