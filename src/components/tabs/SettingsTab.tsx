@@ -60,9 +60,9 @@ const SettingsTab = () => {
             </div>
           </div>
           {showTopLayerImage && (
-            <div className="mt-6 relative group cursor-pointer" onClick={() => handleImageClick("/lovable-uploads/223bba23-7273-4e04-b02a-269086de984b.png")}>
+            <div className="mt-6 relative group cursor-pointer" onClick={() => handleImageClick("/lovable-uploads/7a52356a-82ad-4416-9439-20426688f8d5.png")}>
               <img 
-                src="/lovable-uploads/223bba23-7273-4e04-b02a-269086de984b.png" 
+                src="/lovable-uploads/7a52356a-82ad-4416-9439-20426688f8d5.png" 
                 alt="Top Layer Diagram"
                 className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300"
               />
