@@ -55,16 +55,16 @@ const UITab = () => {
         {/* Post-click metaverse animations */}
         {isListening && (
           <>
-            <div className="absolute -inset-8 rounded-full bg-dashboard-accent1/20 animate-pulse-ring-1" />
-            <div className="absolute -inset-16 rounded-full bg-dashboard-accent2/20 animate-pulse-ring-2" />
-            <div className="absolute -inset-24 rounded-full bg-dashboard-accent3/20 animate-pulse-ring-3" />
+            <div className="absolute -inset-8 rounded-full bg-red-500/20 animate-pulse-ring-1" />
+            <div className="absolute -inset-16 rounded-full bg-red-400/20 animate-pulse-ring-2" />
+            <div className="absolute -inset-24 rounded-full bg-red-300/20 animate-pulse-ring-3" />
             
             {/* Circular wave indicators */}
             <div className="absolute -inset-32 flex items-center justify-center">
               {[...Array(8)].map((_, index) => (
                 <Circle
                   key={index}
-                  className="absolute w-4 h-4 text-dashboard-text/30"
+                  className="absolute w-4 h-4 text-red-400/30"
                   style={{
                     animation: `pulse ${4 + index * 0.5}s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
                     transform: `rotate(${index * 45}deg) translateX(${120}px)`
@@ -79,7 +79,7 @@ const UITab = () => {
           onClick={handleMicClick}
           className={`relative z-10 p-1 rounded-full transition-all duration-500 transform hover:scale-105 overflow-hidden ${
             isListening 
-              ? 'ring-4 ring-dashboard-text ring-opacity-50' 
+              ? 'ring-4 ring-red-400 ring-opacity-50' 
               : 'hover:ring-2 hover:ring-dashboard-text/20'
           }`}
         >
