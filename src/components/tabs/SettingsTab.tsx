@@ -5,6 +5,7 @@ import { Switch } from '@/components/ui/switch';
 const SettingsTab = () => {
   const [showTopLayerImage, setShowTopLayerImage] = useState(false);
   const [showMiddleLayerImage, setShowMiddleLayerImage] = useState(false);
+  const [showBottomLayerImage, setShowBottomLayerImage] = useState(false);
   const [imageScale, setImageScale] = useState(1);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
@@ -14,6 +15,10 @@ const SettingsTab = () => {
 
   const handleMiddleLayerToggle = (checked: boolean) => {
     setShowMiddleLayerImage(checked);
+  };
+
+  const handleBottomLayerToggle = (checked: boolean) => {
+    setShowBottomLayerImage(checked);
   };
 
   const handleImageClick = (imageSrc: string) => {
@@ -56,7 +61,7 @@ const SettingsTab = () => {
                 <p className="font-medium">Bottom Layer</p>
                 <p className="text-sm text-dashboard-text">Agent Infrastructure Layer</p>
               </div>
-              <Switch />
+              <Switch onCheckedChange={handleBottomLayerToggle} />
             </div>
           </div>
           {showTopLayerImage && (
@@ -76,6 +81,18 @@ const SettingsTab = () => {
               <img 
                 src="/lovable-uploads/72b11c77-1fdc-4af6-b83d-fde89a806e80.png" 
                 alt="Middle Layer Diagram"
+                className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300"
+              />
+              <div className="absolute top-4 right-4 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                <ZoomIn className="w-5 h-5 text-white" />
+              </div>
+            </div>
+          )}
+          {showBottomLayerImage && (
+            <div className="mt-6 relative group cursor-pointer" onClick={() => handleImageClick("/lovable-uploads/59e18ed0-207e-4c0e-8540-b62b802aed5b.png")}>
+              <img 
+                src="/lovable-uploads/59e18ed0-207e-4c0e-8540-b62b802aed5b.png" 
+                alt="Bottom Layer Diagram"
                 className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300"
               />
               <div className="absolute top-4 right-4 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
