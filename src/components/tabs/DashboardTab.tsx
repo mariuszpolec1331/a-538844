@@ -13,19 +13,19 @@ const DashboardTab = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
         <MetricCard
-          title="Shop"
-          value={68}
-          color="#7EBF8E"
+          title="AI Agents"
+          value={1370}
+          color="#9b87f5"
         />
         <MetricCard
-          title="Mobile"
-          value={52}
-          color="#8989DE"
+          title="Predefined Scenarios"
+          value={340}
+          color="#7E69AB"
         />
         <MetricCard
-          title="Other"
-          value={85}
-          color="#61AAF2"
+          title="AI Experts"
+          value={760}
+          color="#6E59A5"
         />
       </div>
 
