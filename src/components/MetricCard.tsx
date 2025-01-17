@@ -15,25 +15,22 @@ const MetricCard = ({ title, value, color, type }: MetricCardProps) => {
   const getIcon = () => {
     switch(type) {
       case 'agent':
-        return <Bot size={24} color={color} />;
+        return <Bot size={20} color={color} />;
       case 'expert':
-        return <Brain size={24} color={color} />;
+        return <Brain size={20} color={color} />;
       case 'scenario':
-        return <FileText size={24} color={color} />;
+        return <FileText size={20} color={color} />;
     }
   };
 
   return (
-    <div className="metric-card p-4 bg-dashboard-dark/50 rounded-lg">
+    <div className="metric-card">
       <div className="flex mb-4 min-h-[96px] items-center justify-center relative overflow-hidden">
-        <div className="flex -space-x-3">
+        <div className="flex gap-2">
           {[...Array(iconCount)].map((_, index) => (
             <div 
               key={index}
-              className="transition-transform hover:scale-110 hover:z-10"
-              style={{
-                zIndex: index
-              }}
+              className="animate-pulse-ring"
             >
               {getIcon()}
             </div>
