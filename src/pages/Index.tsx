@@ -11,6 +11,27 @@ import SidePanel from '@/components/SidePanel';
 const Index = () => {
   const [activeTab, setActiveTab] = useState('intro');
 
+  const getTabName = (tab: string) => {
+    switch (tab) {
+      case 'intro':
+        return 'Intro';
+      case 'dashboard':
+        return 'Dashboard';
+      case 'ui':
+        return 'UI';
+      case 'users':
+        return 'Users';
+      case 'settings':
+        return 'Layers';
+      case 'new':
+        return 'Killer Feature';
+      case 'gtm':
+        return 'GTM';
+      default:
+        return '';
+    }
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case 'intro':
@@ -37,7 +58,7 @@ const Index = () => {
       {/* Persistent Top Bar */}
       <div className="fixed top-0 left-0 right-0 bg-dashboard-dark/80 backdrop-blur-lg z-50 border-b border-white/10">
         <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-white text-center"></h1>
+          <h1 className="text-2xl font-bold text-white text-center">{getTabName(activeTab)}</h1>
         </div>
       </div>
 
