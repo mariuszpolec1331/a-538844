@@ -16,16 +16,19 @@ const DashboardTab = () => {
           title="AI Agents"
           value={1370}
           color="#9b87f5"
+          type="agent"
         />
         <MetricCard
           title="Predefined Scenarios"
           value={340}
           color="#7E69AB"
+          type="scenario"
         />
         <MetricCard
           title="AI Experts"
           value={760}
           color="#6E59A5"
+          type="expert"
         />
       </div>
 

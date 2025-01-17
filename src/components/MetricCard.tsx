@@ -1,25 +1,38 @@
 import React from 'react';
-import { Bar } from 'recharts';
+import { User, FileText } from 'lucide-react';
 
 interface MetricCardProps {
   title: string;
   value: number;
   color: string;
+  type: 'agent' | 'scenario' | 'expert';
 }
 
-const MetricCard = ({ title, value, color }: MetricCardProps) => {
-  const maxValue = 1500; // Setting max value for bar scale
+const MetricCard = ({ title, value, color, type }: MetricCardProps) => {
+  // Calculate how many icons to show (1 icon per 100 items)
+  const iconCount = Math.ceil(value / 100);
+  
+  const getIcon = () => {
+    switch(type) {
+      case 'agent':
+      case 'expert':
+        return <User size={24} color={color} />;
+      case 'scenario':
+        return <FileText size={24} color={color} />;
+    }
+  };
 
   return (
     <div className="metric-card p-4 bg-dashboard-dark/50 rounded-lg">
-      <div className="relative h-8 w-full bg-white/5 rounded mb-4">
-        <div 
-          className="h-full rounded transition-all duration-500 ease-in-out"
-          style={{ 
-            width: `${(value / maxValue) * 100}%`,
-            backgroundColor: color 
-          }}
-        />
+      <div className="flex flex-wrap gap-2 mb-4 min-h-[96px] items-center justify-center">
+        {[...Array(iconCount)].map((_, index) => (
+          <div 
+            key={index}
+            className="transition-transform hover:scale-110"
+          >
+            {getIcon()}
+          </div>
+        ))}
       </div>
       <div className="flex justify-between items-center">
         <h3 className="text-base md:text-lg font-medium text-dashboard-text">{title}</h3>
