@@ -40,7 +40,7 @@ const SettingsTab = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="font-medium">Top Layer</p>
-                <p className="text-sm text-dashboard-text">Layer that defines the operations and outcomes of AI-powered systems.</p>
+                <p className="text-sm text-dashboard-text">Layer that defines the operations and outcomes of Meta Agent</p>
               </div>
               <Switch onCheckedChange={handleTopLayerToggle} />
             </div>
