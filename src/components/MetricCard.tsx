@@ -26,7 +26,7 @@ const MetricCard = ({ title, value, color, type }: MetricCardProps) => {
   return (
     <div className="metric-card">
       <div className="flex mb-4 min-h-[96px] items-center justify-center relative overflow-hidden">
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap max-w-[200px] justify-center">
           {[...Array(iconCount)].map((_, index) => (
             <div 
               key={index}
