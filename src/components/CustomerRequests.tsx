@@ -11,14 +11,29 @@ const data = [
   { subject: 'Administration/Legal', value: 60 },
 ];
 
+const colors = ['#FF6B6B', '#61AAF2', '#FFD93D']; // red, blue, yellow
+
 const CustomerRequests = () => {
-  // Generate random positions for 'x' symbols
+  // Generate random positions for 'x' symbols within a circle
   const generateRandomMarkers = () => {
     const markers = [];
+    const centerX = 50; // center percentage
+    const centerY = 50; // center percentage
+    const radius = 35; // percentage of container
+
     for (let i = 0; i < 80; i++) {
+      // Generate random angle and distance from center
+      const angle = Math.random() * 2 * Math.PI;
+      const distance = Math.random() * radius;
+      
+      // Convert polar coordinates to cartesian
+      const x = centerX + distance * Math.cos(angle);
+      const y = centerY + distance * Math.sin(angle);
+      
       markers.push({
-        left: `${Math.random() * 80 + 10}%`,  // 10-90% to keep within bounds
-        top: `${Math.random() * 80 + 10}%`,   // 10-90% to keep within bounds
+        left: `${x}%`,
+        top: `${y}%`,
+        color: colors[Math.floor(Math.random() * colors.length)]
       });
     }
     return markers;
@@ -34,12 +49,14 @@ const CustomerRequests = () => {
         {randomMarkers.map((marker, index) => (
           <span
             key={index}
-            className="absolute text-dashboard-muted text-xs opacity-20"
+            className="absolute text-xs animate-pulse-ring"
             style={{
               left: marker.left,
               top: marker.top,
               transform: 'translate(-50%, -50%)',
               pointerEvents: 'none',
+              color: marker.color,
+              opacity: 0.6
             }}
           >
             x
