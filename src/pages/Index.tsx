@@ -27,11 +27,19 @@ const Index = () => {
             <h1 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Welcome to MetaAgent
             </h1>
-            <p className="text-lg leading-relaxed text-gray-300">
+            <p className="text-lg leading-relaxed text-gray-300 mb-8">
               MetaAgent is a central AI orchestration layer where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine predefined expert scenarios with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
             </p>
+            <div className="w-full flex justify-center">
+              <img 
+                src="/lovable-uploads/1ad73a75-852a-4a10-aa62-c1c1409bc714.png" 
+                alt="MetaAgent Architecture Diagram"
+                className="max-w-full h-auto rounded-lg shadow-lg border border-white/10"
+              />
+            </div>
           </div>
         );
+
       case 'dashboard':
         return (
           <>
@@ -254,8 +262,6 @@ const Index = () => {
             </div>
           </>
         );
-      default:
-        return null;
     }
   };
 
