@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { Bell } from 'lucide-react';
+import { Bell, ZoomIn } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 
 const SettingsTab = () => {
   const [showTopLayerImage, setShowTopLayerImage] = useState(false);
+  const [imageScale, setImageScale] = useState(1);
 
   const handleTopLayerToggle = (checked: boolean) => {
     setShowTopLayerImage(checked);
+  };
+
+  const handleImageClick = () => {
+    setImageScale(prev => prev === 1 ? 1.5 : 1);
   };
 
   return (
@@ -45,12 +50,16 @@ const SettingsTab = () => {
             </div>
           </div>
           {showTopLayerImage && (
-            <div className="mt-6">
+            <div className="mt-6 relative group cursor-pointer" onClick={handleImageClick}>
               <img 
                 src="/lovable-uploads/223bba23-7273-4e04-b02a-269086de984b.png" 
                 alt="Top Layer Diagram"
-                className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300 animate-fade-in"
+                className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300"
+                style={{ transform: `scale(${imageScale})`, transformOrigin: 'center' }}
               />
+              <div className="absolute top-4 right-4 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                <ZoomIn className="w-5 h-5 text-white" />
+              </div>
             </div>
           )}
         </div>
