@@ -1,11 +1,29 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LayoutDashboard, Settings, Users, Mic2, Info, Plus, GitMerge } from "lucide-react";
+import { LayoutDashboard, Settings, Users, Mic2, Info, Plus, GitMerge, ChevronRight } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
 
 interface SidePanelProps {
   onTabChange: (value: string) => void;
 }
 
 const SidePanel = ({ onTabChange }: SidePanelProps) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [showRightIndicator, setShowRightIndicator] = useState(false);
+
+  const checkScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      // Show indicator if we're not at the end
+      setShowRightIndicator(scrollLeft + clientWidth < scrollWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
+  }, []);
+
   return (
     <div className="md:h-screen fixed bottom-0 md:left-0 md:top-0 w-full md:w-64 glass-card border-t md:border-r border-white/10 z-50">
       <div className="p-4 md:p-6">
@@ -16,61 +34,73 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
           className="w-full"
           onValueChange={onTabChange}
         >
-          <TabsList className="flex md:flex-col h-auto bg-transparent text-white w-full justify-between md:justify-start gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide scroll-smooth" style={{
-            scrollBehavior: 'smooth',
-            WebkitOverflowScrolling: 'touch',
-            msOverflowStyle: '-ms-autohiding-scrollbar'
-          }}>
-            <TabsTrigger 
-              value="intro" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
+          <div className="relative">
+            <TabsList 
+              ref={scrollContainerRef}
+              onScroll={checkScroll}
+              className="flex md:flex-col h-auto bg-transparent text-white w-full justify-between md:justify-start gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide scroll-smooth" 
+              style={{
+                scrollBehavior: 'smooth',
+                WebkitOverflowScrolling: 'touch',
+                msOverflowStyle: '-ms-autohiding-scrollbar'
+              }}
             >
-              <Info className="w-4 h-4" />
-              <span className="hidden md:inline">Intro</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="settings" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
-            >
-              <Settings className="w-4 h-4" />
-              <span className="hidden md:inline">Layers</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="new" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
-            >
-              <Plus className="w-4 h-4" />
-              <span className="hidden md:inline">Killer Feature</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="dashboard" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
-            >
-              <LayoutDashboard className="w-4 h-4" />
-              <span className="hidden md:inline">Dashboard</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="users" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
-            >
-              <Users className="w-4 h-4" />
-              <span className="hidden md:inline">Users</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="ui" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
-            >
-              <Mic2 className="w-4 h-4" />
-              <span className="hidden md:inline">UI</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="gtm" 
-              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
-            >
-              <GitMerge className="w-4 h-4" />
-              <span className="hidden md:inline">GTM</span>
-            </TabsTrigger>
-          </TabsList>
+              <TabsTrigger 
+                value="intro" 
+                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
+              >
+                <Info className="w-4 h-4" />
+                <span className="hidden md:inline">Intro</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="settings" 
+                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
+              >
+                <Settings className="w-4 h-4" />
+                <span className="hidden md:inline">Layers</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="new" 
+                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
+              >
+                <Plus className="w-4 h-4" />
+                <span className="hidden md:inline">Killer Feature</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="dashboard" 
+                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                <span className="hidden md:inline">Dashboard</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="users" 
+                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
+              >
+                <Users className="w-4 h-4" />
+                <span className="hidden md:inline">Users</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="ui" 
+                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
+              >
+                <Mic2 className="w-4 h-4" />
+                <span className="hidden md:inline">UI</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="gtm" 
+                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
+              >
+                <GitMerge className="w-4 h-4" />
+                <span className="hidden md:inline">GTM</span>
+              </TabsTrigger>
+            </TabsList>
+            {showRightIndicator && (
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
+                <ChevronRight className="w-6 h-6 text-white/50 animate-pulse-ring" />
+              </div>
+            )}
+          </div>
         </Tabs>
       </div>
     </div>
