@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Bot, Circle } from 'lucide-react';
+import { Circle } from 'lucide-react';
 
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
@@ -77,15 +77,21 @@ const UITab = () => {
         
         <button
           onClick={handleMicClick}
-          className={`relative z-10 p-12 rounded-full transition-all duration-500 transform hover:scale-105 ${
+          className={`relative z-10 p-1 rounded-full transition-all duration-500 transform hover:scale-105 overflow-hidden ${
             isListening 
-              ? 'bg-dashboard-text text-dashboard-dark shadow-lg shadow-dashboard-text/50' 
-              : 'bg-dashboard-card hover:bg-dashboard-text/20'
+              ? 'ring-4 ring-dashboard-text ring-opacity-50' 
+              : 'hover:ring-2 hover:ring-dashboard-text/20'
           }`}
         >
-          <Bot className={`w-16 h-16 transition-transform duration-300 ${
-            isListening ? 'scale-110' : 'scale-100'
-          }`} />
+          <div className="w-32 h-32 rounded-full overflow-hidden">
+            <img 
+              src="/lovable-uploads/57fe78b3-8a3e-49a6-a4a4-379ee09bf75d.png" 
+              alt="Meta Agent"
+              className={`w-full h-full object-cover transition-transform duration-300 ${
+                isListening ? 'scale-110' : 'scale-100'
+              }`}
+            />
+          </div>
         </button>
       </div>
       
