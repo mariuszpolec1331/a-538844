@@ -32,8 +32,8 @@ const SettingsTab = () => {
     <>
       <header className="mb-8">
         <img 
-          src="/lovable-uploads/c7cd3534-33cb-41f7-a0da-02feadc9dc63.png" 
-          alt="Use MetaAgent"
+          src="/lovable-uploads/0cac9957-a585-460c-863e-ad1d7d1a5b09.png" 
+          alt="Use MetaAgent Comparison"
           className="w-full max-w-2xl mx-auto h-auto rounded-lg mb-6"
         />
       </header>
