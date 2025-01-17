@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LayoutDashboard, Settings, Users, Mic2, Info } from "lucide-react";
+import { LayoutDashboard, Settings, Users, Mic2, Info, Plus } from "lucide-react";
 
 interface SidePanelProps {
   onTabChange: (value: string) => void;
@@ -51,6 +51,13 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
             >
               <Settings className="w-4 h-4" />
               <span className="hidden md:inline">Layers</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="new" 
+              className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all"
+            >
+              <Plus className="w-4 h-4" />
+              <span className="hidden md:inline">New</span>
             </TabsTrigger>
           </TabsList>
         </Tabs>
