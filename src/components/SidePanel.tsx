@@ -9,13 +9,28 @@ interface SidePanelProps {
 const SidePanel = ({ onTabChange }: SidePanelProps) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showRightIndicator, setShowRightIndicator] = useState(false);
+  const [activeTabName, setActiveTabName] = useState("Intro");
 
   const checkScroll = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      // Show indicator if we're not at the end
       setShowRightIndicator(scrollLeft + clientWidth < scrollWidth - 10);
     }
+  };
+
+  const handleTabChange = (value: string) => {
+    onTabChange(value);
+    // Set the active tab name based on the selected value
+    const tabNames: { [key: string]: string } = {
+      intro: "Intro",
+      settings: "Layers",
+      new: "Killer Feature",
+      dashboard: "Dashboard",
+      users: "Users",
+      ui: "UI",
+      gtm: "GTM"
+    };
+    setActiveTabName(tabNames[value]);
   };
 
   useEffect(() => {
@@ -28,11 +43,15 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
     <div className="md:h-screen fixed bottom-0 md:left-0 md:top-0 w-full md:w-64 glass-card border-t md:border-r border-white/10 z-50">
       <div className="p-4 md:p-6">
         <h2 className="text-lg md:text-xl font-medium mb-4 md:mb-6 hidden md:block">Navigation</h2>
+        {/* Mobile Tab Name Display */}
+        <div className="md:hidden text-sm font-medium text-white/80 mb-3 text-center">
+          {activeTabName}
+        </div>
         <Tabs 
           defaultValue="intro" 
           orientation="horizontal"
           className="w-full"
-          onValueChange={onTabChange}
+          onValueChange={handleTabChange}
         >
           <div className="relative">
             <TabsList 
