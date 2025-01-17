@@ -1,241 +1,28 @@
 import { useState } from 'react';
-import { UserPlus, Key, Shield, Bell, Globe, Mic2 } from 'lucide-react';
-import { Switch } from '@/components/ui/switch';
-import MetricCard from '@/components/MetricCard';
-import MonthlyChart from '@/components/MonthlyChart';
-import CustomerRequests from '@/components/CustomerRequests';
+import IntroTab from '@/components/tabs/IntroTab';
+import DashboardTab from '@/components/tabs/DashboardTab';
+import UITab from '@/components/tabs/UITab';
+import UsersTab from '@/components/tabs/UsersTab';
+import SettingsTab from '@/components/tabs/SettingsTab';
 import SidePanel from '@/components/SidePanel';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('intro');
-  const [isListening, setIsListening] = useState(false);
-  const [showTopLayerImage, setShowTopLayerImage] = useState(false);
-
-  const handleMicClick = () => {
-    setIsListening(!isListening);
-  };
-
-  const handleTopLayerToggle = (checked: boolean) => {
-    setShowTopLayerImage(checked);
-  };
 
   const renderContent = () => {
     switch (activeTab) {
       case 'intro':
-        return (
-          <div className="max-w-4xl mx-auto py-8">
-            <h1 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Welcome to MetaAgent
-            </h1>
-            <p className="text-lg leading-relaxed text-gray-300 mb-8">
-              MetaAgent is a central AI <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>orchestration layer</span> where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine <span style={{ color: '#44bcd8', fontWeight: 'bold' }}>predefined expert scenarios</span> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
-            </p>
-            <div className="w-full flex justify-center">
-              <img 
-                src="/lovable-uploads/94e7f52b-bca0-4b3d-8675-afe6484ae1c0.png" 
-                alt="MetaAgent Architecture Diagram"
-                className="max-w-full h-auto rounded-lg shadow-lg border border-white/10"
-              />
-            </div>
-          </div>
-        );
-
+        return <IntroTab />;
       case 'dashboard':
-        return (
-          <>
-            <header className="mb-6 md:mb-8">
-              <h1 className="text-2xl md:text-3xl font-medium mb-2">Dashboard</h1>
-              <p className="text-sm md:text-base text-dashboard-muted">Below is an example dashboard created using charts from this plugin</p>
-            </header>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
-              <MetricCard
-                title="Shop"
-                value={68}
-                color="#7EBF8E"
-              />
-              <MetricCard
-                title="Mobile"
-                value={52}
-                color="#8989DE"
-              />
-              <MetricCard
-                title="Other"
-                value={85}
-                color="#61AAF2"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-              <MonthlyChart />
-              <CustomerRequests />
-            </div>
-          </>
-        );
+        return <DashboardTab />;
       case 'ui':
-        return (
-          <div className="flex items-center justify-center min-h-[80vh] relative">
-            <div className="relative">
-              {/* Outer ring animation */}
-              <div className={`absolute inset-0 rounded-full ${
-                isListening ? 'bg-dashboard-accent1/20 animate-pulse-ring' : ''
-              }`} />
-              
-              {/* Middle ring animation */}
-              <div className={`absolute inset-2 rounded-full ${
-                isListening ? 'bg-dashboard-accent1/30 animate-pulse-ring [animation-delay:0.4s]' : ''
-              }`} />
-              
-              {/* Inner ring animation */}
-              <div className={`absolute inset-4 rounded-full ${
-                isListening ? 'bg-dashboard-accent1/40 animate-pulse-ring [animation-delay:0.8s]' : ''
-              }`} />
-              
-              {/* Main button */}
-              <button
-                onClick={handleMicClick}
-                className={`relative z-10 p-12 rounded-full transition-all duration-500 transform hover:scale-105 ${
-                  isListening 
-                    ? 'bg-dashboard-accent1 text-white shadow-lg shadow-dashboard-accent1/50' 
-                    : 'bg-dashboard-card hover:bg-dashboard-accent1/20'
-                }`}
-              >
-                <Mic2 className={`w-16 h-16 transition-transform duration-300 ${
-                  isListening ? 'scale-110' : 'scale-100'
-                }`} />
-              </button>
-            </div>
-            
-            <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-300 ${
-              isListening ? 'opacity-100' : 'opacity-70'
-            }`}>
-              <p className="text-xl font-medium text-center">
-                {isListening ? 'Listening...' : 'Click to start speaking'}
-              </p>
-              <p className="mt-2 text-dashboard-muted text-center">
-                {isListening 
-                  ? 'Speak clearly into your microphone' 
-                  : 'Tap the microphone to begin'}
-              </p>
-            </div>
-          </div>
-        );
+        return <UITab />;
       case 'users':
-        return (
-          <>
-            <header className="mb-8">
-              <h1 className="text-3xl font-medium mb-2">You set the goal, MetaAgent delivers</h1>
-              <p className="text-dashboard-muted">MetaAgent orchestrates your transformation and AI integration</p>
-            </header>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="dashboard-card">
-                <div className="flex items-center gap-3 mb-4">
-                  <UserPlus className="w-5 h-5 text-blue-400" />
-                  <h2 className="text-xl font-medium">Active Users</h2>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 glass-card">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">JD</div>
-                      <div>
-                        <p className="font-medium">John Doe</p>
-                        <p className="text-sm text-gray-400">Administrator</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Key className="w-4 h-4 text-green-400" />
-                      <span className="text-sm text-green-400">Active</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between p-3 glass-card">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center">AS</div>
-                      <div>
-                        <p className="font-medium">Alice Smith</p>
-                        <p className="text-sm text-gray-400">Editor</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Key className="w-4 h-4 text-green-400" />
-                      <span className="text-sm text-green-400">Active</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="dashboard-card">
-                <div className="flex items-center gap-3 mb-4">
-                  <Shield className="w-5 h-5 text-purple-400" />
-                  <h2 className="text-xl font-medium">Permissions</h2>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 glass-card">
-                    <div>
-                      <p className="font-medium">Admin Access</p>
-                      <p className="text-sm text-gray-400">Full system access</p>
-                    </div>
-                    <Switch />
-                  </div>
-                  <div className="flex items-center justify-between p-3 glass-card">
-                    <div>
-                      <p className="font-medium">Editor Access</p>
-                      <p className="text-sm text-gray-400">Content management</p>
-                    </div>
-                    <Switch />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </>
-        );
+        return <UsersTab />;
       case 'settings':
-        return (
-          <>
-            <header className="mb-8">
-              <h1 className="text-3xl font-medium mb-2">Every Business is a Set of Scenarios</h1>
-              <p className="text-dashboard-muted">Configure your application settings</p>
-            </header>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="dashboard-card">
-                <div className="flex items-center gap-3 mb-4">
-                  <Bell className="w-5 h-5 text-yellow-400" />
-                  <h2 className="text-xl font-medium">Layers</h2>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">Top Layer</p>
-                      <p className="text-sm text-gray-400">Layer that defines the operations and outcomes of AI-powered systems.</p>
-                    </div>
-                    <Switch onCheckedChange={handleTopLayerToggle} />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">Middle Layer</p>
-                      <p className="text-sm text-gray-400">Agent Orchestration Layer</p>
-                    </div>
-                    <Switch />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">Bottom Layer</p>
-                      <p className="text-sm text-gray-400">Agent Infrastructure Layer</p>
-                    </div>
-                    <Switch />
-                  </div>
-                </div>
-                {showTopLayerImage && (
-                  <div className="mt-6">
-                    <img 
-                      src="/lovable-uploads/223bba23-7273-4e04-b02a-269086de984b.png" 
-                      alt="Top Layer Diagram"
-                      className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300 animate-fade-in"
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          </>
-        );
+        return <SettingsTab />;
+      default:
+        return <IntroTab />;
     }
   };
 
