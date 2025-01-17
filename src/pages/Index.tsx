@@ -228,36 +228,10 @@ const Index = () => {
                     <img 
                       src="/lovable-uploads/223bba23-7273-4e04-b02a-269086de984b.png" 
                       alt="Top Layer Diagram"
-                      className="w-full rounded-lg border border-white/10 transition-all duration-300 animate-fade-in"
+                      className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300 animate-fade-in"
                     />
                   </div>
                 )}
-              </div>
-              <div className="dashboard-card">
-                <div className="flex items-center gap-3 mb-4">
-                  <Globe className="w-5 h-5 text-green-400" />
-                  <h2 className="text-xl font-medium">Preferences</h2>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">Language</p>
-                      <p className="text-sm text-gray-400">Select your language</p>
-                    </div>
-                    <select className="bg-transparent border border-white/10 rounded-md px-2 py-1">
-                      <option value="en">English</option>
-                      <option value="es">Spanish</option>
-                      <option value="fr">French</option>
-                    </select>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">Dark Mode</p>
-                      <p className="text-sm text-gray-400">Toggle dark mode</p>
-                    </div>
-                    <Switch />
-                  </div>
-                </div>
               </div>
             </div>
           </>
