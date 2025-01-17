@@ -7,7 +7,7 @@ import CustomerRequests from '@/components/CustomerRequests';
 import SidePanel from '@/components/SidePanel';
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('intro');
   const [isListening, setIsListening] = useState(false);
   const [showTopLayerImage, setShowTopLayerImage] = useState(false);
 
@@ -21,6 +21,17 @@ const Index = () => {
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'intro':
+        return (
+          <div className="max-w-4xl mx-auto py-8">
+            <h1 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+              Welcome to MetaAgent
+            </h1>
+            <p className="text-lg leading-relaxed text-gray-300">
+              MetaAgent is a central AI orchestration layer where industry experts and intelligent agents co-create and transform businesses into autonomous organizations. We combine predefined expert scenarios with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
+            </p>
+          </div>
+        );
       case 'dashboard':
         return (
           <>
