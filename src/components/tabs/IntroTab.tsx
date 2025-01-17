@@ -6,9 +6,19 @@ const IntroTab = () => {
       <h1 className="text-3xl font-bold mb-6 text-dashboard-text">
         Welcome to MetaAgent
       </h1>
+
+      <div className="w-full flex justify-center mb-8">
+        <img 
+          src="/lovable-uploads/60a40fd5-5002-4397-b38c-bd0714dde376.png" 
+          alt="How to achieve business goals"
+          className="max-w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+      
       <p className="text-lg leading-relaxed text-dashboard-text mb-8">
         MetaAgent is a central AI orchestration layer where <span className="font-bold">industry experts</span> and <span className="font-bold">intelligent AI agents</span> co-create and transform businesses into autonomous organizations. We combine <span className="font-bold">predefined expert scenarios</span> with advanced automation, helping entrepreneurs build and modernize scalable businesses of the future - from initial concept to a functioning AI ecosystem.
       </p>
+      
       <div className="w-full flex justify-center mb-12">
         <img 
           src="/lovable-uploads/94e7f52b-bca0-4b3d-8675-afe6484ae1c0.png" 
