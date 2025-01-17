@@ -46,7 +46,7 @@ const CustomerRequests = () => {
 
   return (
     <div className="dashboard-card h-[300px] md:h-[400px]">
-      <h2 className="text-lg md:text-xl font-medium mb-4 md:mb-6">Predefined expert scenarios</h2>
+      <h2 className="text-lg md:text-xl font-medium mb-4 md:mb-6">Matrix of pre-defined expert scenarios</h2>
       <div className="relative h-full">
         {/* Random 'x' markers */}
         {randomMarkers.map((marker, index) => (
