@@ -6,6 +6,7 @@ const SettingsTab = () => {
   const [showTopLayerImage, setShowTopLayerImage] = useState(false);
   const [showMiddleLayerImage, setShowMiddleLayerImage] = useState(false);
   const [imageScale, setImageScale] = useState(1);
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   const handleTopLayerToggle = (checked: boolean) => {
     setShowTopLayerImage(checked);
@@ -15,8 +16,12 @@ const SettingsTab = () => {
     setShowMiddleLayerImage(checked);
   };
 
-  const handleImageClick = () => {
-    setImageScale(prev => prev === 1 ? 1.5 : 1);
+  const handleImageClick = (imageSrc: string) => {
+    if (zoomedImage === imageSrc) {
+      setZoomedImage(null);
+    } else {
+      setZoomedImage(imageSrc);
+    }
   };
 
   return (
@@ -55,12 +60,11 @@ const SettingsTab = () => {
             </div>
           </div>
           {showTopLayerImage && (
-            <div className="mt-6 relative group cursor-pointer" onClick={handleImageClick}>
+            <div className="mt-6 relative group cursor-pointer" onClick={() => handleImageClick("/lovable-uploads/223bba23-7273-4e04-b02a-269086de984b.png")}>
               <img 
                 src="/lovable-uploads/223bba23-7273-4e04-b02a-269086de984b.png" 
                 alt="Top Layer Diagram"
                 className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300"
-                style={{ transform: `scale(${imageScale})`, transformOrigin: 'center' }}
               />
               <div className="absolute top-4 right-4 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                 <ZoomIn className="w-5 h-5 text-white" />
@@ -68,12 +72,11 @@ const SettingsTab = () => {
             </div>
           )}
           {showMiddleLayerImage && (
-            <div className="mt-6 relative group cursor-pointer" onClick={handleImageClick}>
+            <div className="mt-6 relative group cursor-pointer" onClick={() => handleImageClick("/lovable-uploads/72b11c77-1fdc-4af6-b83d-fde89a806e80.png")}>
               <img 
                 src="/lovable-uploads/72b11c77-1fdc-4af6-b83d-fde89a806e80.png" 
                 alt="Middle Layer Diagram"
                 className="w-full h-auto max-w-[800px] mx-auto rounded-lg border border-white/10 transition-all duration-300"
-                style={{ transform: `scale(${imageScale})`, transformOrigin: 'center' }}
               />
               <div className="absolute top-4 right-4 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                 <ZoomIn className="w-5 h-5 text-white" />
@@ -82,6 +85,23 @@ const SettingsTab = () => {
           )}
         </div>
       </div>
+
+      {/* Zoomed Image Overlay */}
+      {zoomedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 cursor-pointer"
+          onClick={() => setZoomedImage(null)}
+        >
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-md" />
+          <div className="relative z-50 w-full max-w-7xl">
+            <img 
+              src={zoomedImage} 
+              alt="Zoomed Diagram"
+              className="w-full h-auto rounded-lg border border-white/20 shadow-2xl glass-card"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 };
