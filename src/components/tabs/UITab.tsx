@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mic2, Circle } from 'lucide-react';
+import { Bot, Circle } from 'lucide-react';
 
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
@@ -83,7 +83,7 @@ const UITab = () => {
               : 'bg-dashboard-card hover:bg-dashboard-text/20'
           }`}
         >
-          <Mic2 className={`w-16 h-16 transition-transform duration-300 ${
+          <Bot className={`w-16 h-16 transition-transform duration-300 ${
             isListening ? 'scale-110' : 'scale-100'
           }`} />
         </button>
