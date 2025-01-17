@@ -5,6 +5,7 @@ import UITab from '@/components/tabs/UITab';
 import UsersTab from '@/components/tabs/UsersTab';
 import SettingsTab from '@/components/tabs/SettingsTab';
 import NewTab from '@/components/tabs/NewTab';
+import KillerFeatureTab from '@/components/tabs/KillerFeatureTab';
 import SidePanel from '@/components/SidePanel';
 
 const Index = () => {
@@ -24,6 +25,8 @@ const Index = () => {
         return <SettingsTab />;
       case 'new':
         return <NewTab />;
+      case 'killer':
+        return <KillerFeatureTab />;
       default:
         return <IntroTab />;
     }
