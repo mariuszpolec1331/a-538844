@@ -9,8 +9,8 @@ interface MetricCardProps {
 }
 
 const MetricCard = ({ title, value, color, type }: MetricCardProps) => {
-  // Calculate how many icons to show (1 icon per 100 items)
-  const iconCount = Math.ceil(value / 100);
+  // Set fixed number of icons (14) for all categories
+  const iconCount = 14;
   
   const getIcon = () => {
     switch(type) {
@@ -30,7 +30,6 @@ const MetricCard = ({ title, value, color, type }: MetricCardProps) => {
           {[...Array(iconCount)].map((_, index) => (
             <div 
               key={index}
-              className="animate-pulse-ring"
             >
               {getIcon()}
             </div>
