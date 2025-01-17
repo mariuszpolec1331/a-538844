@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LayoutDashboard, Settings, Mic2, Info, Plus, GitMerge, ChevronRight } from "lucide-react";
+import { LayoutDashboard, Settings, Mic2, Info, Plus } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 
 interface SidePanelProps {
@@ -79,19 +79,7 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
                 <Mic2 className="w-4 h-4" />
                 <span className="hidden md:inline">UI</span>
               </TabsTrigger>
-              <TabsTrigger 
-                value="gtm" 
-                className="flex-1 md:w-full justify-center md:justify-start gap-2 data-[state=active]:bg-white/10 data-[state=active]:text-white text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all snap-start scroll-ml-4 min-w-[100px] md:min-w-full"
-              >
-                <GitMerge className="w-4 h-4" />
-                <span className="hidden md:inline">GTM</span>
-              </TabsTrigger>
             </TabsList>
-            {showRightIndicator && (
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
-                <ChevronRight className="w-6 h-6 text-white/50 animate-pulse-ring" />
-              </div>
-            )}
           </div>
         </Tabs>
       </div>

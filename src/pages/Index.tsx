@@ -4,7 +4,6 @@ import DashboardTab from '@/components/tabs/DashboardTab';
 import UITab from '@/components/tabs/UITab';
 import SettingsTab from '@/components/tabs/SettingsTab';
 import NewTab from '@/components/tabs/NewTab';
-import GTMTab from '@/components/tabs/GTMTab';
 import SidePanel from '@/components/SidePanel';
 
 const Index = () => {
@@ -22,8 +21,6 @@ const Index = () => {
         return 'Layers';
       case 'new':
         return 'Killer Feature';
-      case 'gtm':
-        return 'GTM';
       default:
         return '';
     }
@@ -41,8 +38,6 @@ const Index = () => {
         return <SettingsTab />;
       case 'new':
         return <NewTab />;
-      case 'gtm':
-        return <GTMTab />;
       default:
         return <IntroTab />;
     }
