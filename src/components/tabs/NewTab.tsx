@@ -4,7 +4,7 @@ const NewTab = () => {
       <h2 className="text-3xl font-bold text-white">Killer Feature</h2>
       <div className="space-y-6 text-lg leading-relaxed">
         <p className="text-dashboard-text">
-          A scenario is a ready, verified "recipe" for solving a specific business problem. It works like navigation - you don't need to know the route or understand the technology, just state where you want to go. MetaAgent selects appropriate AI agents and experts, then guides you step by step to your goal.
+          A scenario is a ready, <span className="font-bold text-dashboard-accent1">verified "recipe"</span> for solving a specific business problem. It works like navigation - you don't need to know the route or understand the technology, just state where you want to go. MetaAgent selects appropriate AI agents and experts, then guides you step by step to your goal.
         </p>
         
         <img 
@@ -24,7 +24,7 @@ const NewTab = () => {
         </div>
         
         <p className="text-dashboard-text mt-6">
-          The key value lies in the fact that one proven scenario can be repeatedly used by different companies, making expertise easily scalable.
+          The key value lies in the fact that <span className="font-bold text-dashboard-accent1">one proven scenario</span> can be repeatedly used by different companies, making expertise easily scalable.
         </p>
       </div>
     </div>
