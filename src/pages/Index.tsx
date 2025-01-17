@@ -32,7 +32,7 @@ const Index = () => {
             </p>
             <div className="w-full flex justify-center">
               <img 
-                src="/lovable-uploads/1ad73a75-852a-4a10-aa62-c1c1409bc714.png" 
+                src="/lovable-uploads/94e7f52b-bca0-4b3d-8675-afe6484ae1c0.png" 
                 alt="MetaAgent Architecture Diagram"
                 className="max-w-full h-auto rounded-lg shadow-lg border border-white/10"
               />
@@ -275,7 +275,7 @@ const Index = () => {
       </div>
 
       {/* Main Content */}
-      <div className="pt-16 pb-20"> {/* Added padding-top to account for the fixed header */}
+      <div className="pt-16 pb-20">
         <SidePanel onTabChange={setActiveTab} />
         <div className="pl-0 md:pl-64">
           <div className="p-4 md:p-8">
