@@ -77,16 +77,28 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "pulse-ring": {
-          "0%": { transform: "scale(0.8)", opacity: "0.4" },
-          "50%": { transform: "scale(1)", opacity: "1" },
-          "100%": { transform: "scale(0.8)", opacity: "0.4" }
+        "pulse-ring-1": {
+          "0%": { transform: "scale(0.8)", opacity: "0.3" },
+          "50%": { transform: "scale(1)", opacity: "0.8" },
+          "100%": { transform: "scale(0.8)", opacity: "0.3" }
+        },
+        "pulse-ring-2": {
+          "0%": { transform: "scale(1)", opacity: "0.8" },
+          "50%": { transform: "scale(0.8)", opacity: "0.3" },
+          "100%": { transform: "scale(1)", opacity: "0.8" }
+        },
+        "pulse-ring-3": {
+          "0%": { transform: "scale(0.9)", opacity: "0.5" },
+          "50%": { transform: "scale(1)", opacity: "0.9" },
+          "100%": { transform: "scale(0.9)", opacity: "0.5" }
         }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-ring": "pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+        "pulse-ring-1": "pulse-ring-1 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "pulse-ring-2": "pulse-ring-2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "pulse-ring-3": "pulse-ring-3 6s cubic-bezier(0.4, 0, 0.6, 1) infinite"
       },
     },
   },
