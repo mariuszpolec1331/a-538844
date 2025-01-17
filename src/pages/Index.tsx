@@ -31,7 +31,7 @@ const Index = () => {
       {/* Persistent Top Bar */}
       <div className="fixed top-0 left-0 right-0 bg-dashboard-dark/80 backdrop-blur-lg z-50 border-b border-white/10">
         <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-white text-center">META AGENT</h1>
+          <h1 className="text-2xl font-bold text-white text-center"></h1>
         </div>
       </div>
 
