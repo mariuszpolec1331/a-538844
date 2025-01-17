@@ -7,8 +7,8 @@ const DashboardTab = () => {
   return (
     <>
       <header className="mb-6 md:mb-8">
-        <h1 className="text-2xl md:text-3xl font-medium mb-2">Dashboard</h1>
-        <p className="text-sm md:text-base text-dashboard-muted">Below is an example dashboard created using charts from this plugin</p>
+        <h1 className="text-2xl md:text-3xl font-medium mb-2">Available assets</h1>
+        <p className="text-sm md:text-base text-dashboard-muted">Below are the numbers of assets we have integrated into Meta Agent</p>
       </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
