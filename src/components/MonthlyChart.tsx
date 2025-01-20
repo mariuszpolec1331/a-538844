@@ -7,18 +7,18 @@ const data = [
   { month: 'A', value: 38, revenue: 30 },
   { month: 'M', value: 42, revenue: 25 },
   { month: 'J', value: 48, revenue: 40 },
-  { month: 'J', value: 45, revenue: 45 },
-  { month: 'A', value: 43, revenue: 50 },
-  { month: 'S', value: 44, revenue: 45 },
-  { month: 'O', value: 45, revenue: 55 },
-  { month: 'N', value: 47, revenue: 50 },
-  { month: 'D', value: 49, revenue: 60 },
+  { month: 'J', value: 0, revenue: 45 },
+  { month: 'A', value: 100, revenue: 50 },
+  { month: 'S', value: 200, revenue: 45 },
+  { month: 'O', value: 300, revenue: 55 },
+  { month: 'N', value: 450, revenue: 50 },
+  { month: 'D', value: 600, revenue: 60 },
 ];
 
 const MonthlyChart = () => {
   return (
     <div className="dashboard-card h-[300px] md:h-[400px]">
-      <h2 className="text-lg md:text-xl font-medium mb-4 md:mb-6">Monthly Income</h2>
+      <h2 className="text-lg md:text-xl font-medium mb-4 md:mb-6">Monthly interactions with the scenarios</h2>
       <div className="h-[calc(100%-3.5rem)] md:h-[calc(100%-4rem)]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 20, right: 20, left: -20, bottom: 0 }}>
