@@ -82,3 +82,20 @@
     transform: rotate(45deg) translateY(100%);
   }
 }
+
+@keyframes matrix-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
