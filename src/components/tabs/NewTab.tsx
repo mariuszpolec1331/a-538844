@@ -26,6 +26,20 @@ const NewTab = () => {
         <p className="text-dashboard-text mt-6">
           The key value lies in the fact that <span className="font-bold">one proven scenario</span> can be repeatedly used by different companies, making expertise easily scalable.
         </p>
+
+        <div className="glass-card p-6 space-y-4">
+          <h3 className="text-xl font-bold text-dashboard-text">Google Analogy:</h3>
+          <div className="space-y-2">
+            <p className="text-dashboard-text">Google: Indexed pages → Provided access to knowledge</p>
+            <p className="text-dashboard-text">MetaAgent: Indexes scenarios → Provides access to expertise in action</p>
+          </div>
+          
+          <h3 className="text-xl font-bold text-dashboard-text mt-4">Key Difference:</h3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li className="text-dashboard-text">Search engines provide information</li>
+            <li className="text-dashboard-text">MetaAgent provides ready solutions</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
