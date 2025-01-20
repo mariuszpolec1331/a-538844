@@ -34,13 +34,6 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
               <span className="hidden md:inline">Intro</span>
             </TabsTrigger>
             <TabsTrigger 
-              value="settings" 
-              className={`flex justify-center md:justify-start gap-2 text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all ${activeTab === 'settings' ? 'bg-white/10' : ''}`}
-            >
-              <Settings className="w-4 h-4" />
-              <span className="hidden md:inline">Layers</span>
-            </TabsTrigger>
-            <TabsTrigger 
               value="new" 
               className={`flex justify-center md:justify-start gap-2 text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all ${activeTab === 'new' ? 'bg-white/10' : ''}`}
             >
@@ -55,11 +48,18 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
               <span className="hidden md:inline">Dashboard</span>
             </TabsTrigger>
             <TabsTrigger 
+              value="settings" 
+              className={`flex justify-center md:justify-start gap-2 text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all ${activeTab === 'settings' ? 'bg-white/10' : ''}`}
+            >
+              <Settings className="w-4 h-4" />
+              <span className="hidden md:inline">Layers</span>
+            </TabsTrigger>
+            <TabsTrigger 
               value="ui" 
               className={`flex justify-center md:justify-start gap-2 text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all ${activeTab === 'ui' ? 'bg-white/10' : ''}`}
             >
               <Mic2 className="w-4 h-4" />
-              <span className="hidden md:inline">UI</span>
+              <span className="hidden md:inline">Interface</span>
             </TabsTrigger>
           </TabsList>
         </Tabs>
