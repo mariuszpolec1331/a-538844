@@ -4,22 +4,39 @@ import { Circle } from 'lucide-react';
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
   const [time, setTime] = useState(0);
+  const [agents, setAgents] = useState(15670);
+  const [experts, setExperts] = useState(2340);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
+    let agentInterval: NodeJS.Timeout;
+    let expertInterval: NodeJS.Timeout;
     
     if (isListening) {
+      // Timer interval
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
       }, 1000);
+
+      // Agent counter interval (every 2 seconds)
+      agentInterval = setInterval(() => {
+        setAgents(prev => prev + 1);
+      }, 2000);
+
+      // Expert counter interval (every 5 seconds)
+      expertInterval = setInterval(() => {
+        setExperts(prev => prev + 1);
+      }, 5000);
     } else {
       setTime(0);
+      setAgents(15670);
+      setExperts(2340);
     }
 
     return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
+      if (interval) clearInterval(interval);
+      if (agentInterval) clearInterval(agentInterval);
+      if (expertInterval) clearInterval(expertInterval);
     };
   }, [isListening]);
 
@@ -37,11 +54,17 @@ const UITab = () => {
 
   return (
     <div className="flex items-center justify-center min-h-[80vh] relative">
-      {/* Timer at the top */}
+      {/* Timer and stats at the top */}
       {isListening && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2">
-          <p className="text-sm font-mono text-dashboard-muted">
-            {formatTime(time)}
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 space-y-2">
+          <p className="text-sm font-mono text-dashboard-muted text-center">
+            timer: {formatTime(time)}
+          </p>
+          <p className="text-sm font-mono text-dashboard-muted text-center">
+            ai agents {agents.toLocaleString()} (active agents)
+          </p>
+          <p className="text-sm font-mono text-dashboard-muted text-center">
+            ai experts {experts.toLocaleString()} (active experts)
           </p>
         </div>
       )}
