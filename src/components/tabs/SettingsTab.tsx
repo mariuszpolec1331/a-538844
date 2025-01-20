@@ -30,6 +30,20 @@ const SettingsTab = () => {
 
   return (
     <>
+      <div className="max-w-4xl mx-auto mb-12">
+        <div className="glass-card p-8 space-y-6">
+          <p className="text-lg leading-relaxed text-dashboard-text">
+            Just as Hollywood in the 80s and 90s was obsessed with special effects and camera technology, only to discover that great stories matter most, the tech world has been fixated on hardware and software.
+          </p>
+          <p className="text-lg leading-relaxed text-dashboard-text">
+            MetaAgent introduces a different perspective by focusing on scenarios - our collection of proven "recipes" for business success. Think of these scenarios as detailed step-by-step guides where AI agents and human experts work together like a well-orchestrated movie crew, each playing their part in transforming your business.
+          </p>
+          <p className="text-lg leading-relaxed text-dashboard-text">
+            Just like a brilliant script makes all the difference between a blockbuster and a flop, our scenarios turn powerful technology into real business results.
+          </p>
+        </div>
+      </div>
+
       <header className="mb-8">
         <img 
           src="/lovable-uploads/0cac9957-a585-460c-863e-ad1d7d1a5b09.png" 
