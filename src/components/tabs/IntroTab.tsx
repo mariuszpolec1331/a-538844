@@ -37,7 +37,7 @@ const IntroTab = () => {
         />
       </div>
       
-      <div className="space-y-6">
+      <div className="space-y-6 mb-12">
         <h2 className="text-2xl font-bold text-dashboard-text">Our Mission</h2>
         <p className="text-lg leading-relaxed text-dashboard-text">
           We compose and orchestrate teams of <span className="font-bold">intelligent AI agents</span> tailored to your business. Our system instantly matches the best agents to tasks, synchronizes their cooperation, and ensures peak performance, while <span className="font-bold">industry experts</span> maintain strategic oversight. It's like having your own AI super-team under the watchful eye of the best coaches.
@@ -45,6 +45,68 @@ const IntroTab = () => {
         <p className="text-lg leading-relaxed text-dashboard-text font-semibold">
           We combine human expertise with advanced automation
         </p>
+      </div>
+
+      {/* Example Conversation */}
+      <div className="glass-card p-8 space-y-6">
+        <div className="space-y-4">
+          <div className="bg-dashboard-dark/40 p-4 rounded-lg">
+            <p className="text-dashboard-text font-semibold">USER:</p>
+            <p className="text-dashboard-text">"I want to create an online shoe store"</p>
+          </div>
+
+          <div className="bg-dashboard-dark/20 p-4 rounded-lg">
+            <p className="text-dashboard-text font-semibold">META-AGENT:</p>
+            <p className="text-dashboard-text">"I'll help you build a profitable e-commerce business. Let's start..."</p>
+          </div>
+
+          <div className="space-y-2">
+            <p className="text-dashboard-text font-semibold">1. Quick Analysis [1 min]:</p>
+            <ul className="list-disc list-inside text-dashboard-text ml-4">
+              <li>Agent gathers basic info: budget, scale, niche</li>
+              <li>Shows market potential and sales forecasts</li>
+            </ul>
+          </div>
+
+          <div className="bg-dashboard-accent1/10 p-4 rounded-lg">
+            <p className="text-dashboard-text font-semibold">[EXPERT NEED DETECTED]</p>
+            <p className="text-dashboard-text">META-AGENT: "I see that the footwear industry has specific sourcing requirements. Connecting you with an expert who has 15 years of footwear e-commerce experience..."</p>
+          </div>
+
+          <div className="bg-dashboard-accent2/10 p-4 rounded-lg">
+            <p className="text-dashboard-text font-semibold">[SMOOTH TRANSITION TO EXPERT]</p>
+            <p className="text-dashboard-text">EXPERT: "Hi! Meta-Agent briefed me on the details. I have a few key questions about your collection vision..."</p>
+            <ul className="list-disc list-inside text-dashboard-text ml-4 mt-2">
+              <li>Brief expert session [10 min]</li>
+              <li>Specific recommendations on suppliers and margins</li>
+            </ul>
+          </div>
+
+          <div className="bg-dashboard-dark/20 p-4 rounded-lg">
+            <p className="text-dashboard-text font-semibold">[BACK TO AUTOMATION]</p>
+            <p className="text-dashboard-text">META-AGENT: "Thanks to the expert. Based on this information, I'm preparing an optimized plan..."</p>
+          </div>
+
+          <div className="space-y-4">
+            <div>
+              <p className="text-dashboard-text font-semibold">2. Automated Implementation:</p>
+              <ul className="list-disc list-inside text-dashboard-text ml-4">
+                <li>Agent builds store incorporating expert knowledge</li>
+                <li>Configures all systems and integrations</li>
+                <li>Client only approves subsequent stages</li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-dashboard-text font-semibold">3. Sales Launch:</p>
+              <ul className="list-disc list-inside text-dashboard-text ml-4">
+                <li>Automated marketing activation</li>
+                <li>Full operations automation</li>
+                <li>Regular reports and optimizations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
