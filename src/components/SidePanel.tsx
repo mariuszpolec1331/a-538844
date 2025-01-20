@@ -10,7 +10,7 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showRightIndicator, setShowRightIndicator] = useState(false);
   const [showLeftIndicator, setShowLeftIndicator] = useState(false);
-  const [activeTab, setActiveTab] = useState('');
+  const [activeTab, setActiveTab] = useState('intro');
 
   const checkScroll = () => {
     if (scrollContainerRef.current) {
@@ -47,6 +47,7 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
     <div className="md:h-screen fixed bottom-0 md:left-0 md:top-0 w-full md:w-64 glass-card border-t md:border-r border-white/10 z-50">
       <div className="p-4 md:p-6">
         <Tabs 
+          defaultValue="intro"
           value={activeTab}
           onValueChange={handleTabChange}
           orientation="horizontal"
