@@ -41,7 +41,7 @@ const UITab = () => {
         className="mb-8 bg-dashboard-accent2 hover:bg-dashboard-accent2/80 text-white"
       >
         <Mic className="mr-2 h-4 w-4" />
-        {isListening ? 'Stop Recording' : 'Start Recording'}
+        Push-to-talk
       </Button>
 
       {/* Animated Background Lines */}
