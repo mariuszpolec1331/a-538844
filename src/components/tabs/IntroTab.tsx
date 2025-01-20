@@ -36,7 +36,7 @@ const IntroTab = () => {
           className="max-w-full h-auto rounded-lg shadow-lg border border-white/10"
         />
       </div>
-      
+
       <div className="space-y-6 mb-12">
         <h2 className="text-2xl font-bold text-dashboard-text">Our Mission</h2>
         <p className="text-lg leading-relaxed text-dashboard-text">
@@ -47,8 +47,10 @@ const IntroTab = () => {
         </p>
       </div>
 
-      {/* Example Conversation */}
-      <div className="glass-card p-8 space-y-6">
+      {/* Example 1: Shoe Store */}
+      <div className="mb-12">
+        <h3 className="text-2xl font-bold text-dashboard-text mb-6">Example 1: E-commerce Launch</h3>
+        <div className="glass-card p-8 space-y-6">
         <div className="space-y-4">
           <div className="bg-dashboard-dark/40 p-4 rounded-lg">
             <p className="text-dashboard-text font-semibold">USER:</p>
@@ -104,6 +106,130 @@ const IntroTab = () => {
                 <li>Full operations automation</li>
                 <li>Regular reports and optimizations</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Example 2: Energy Consulting */}
+      <div className="mb-12">
+        <h3 className="text-2xl font-bold text-dashboard-text mb-6">Example 2: Process Automation</h3>
+        <div className="glass-card p-8 space-y-6">
+          <div className="space-y-4">
+            <div className="bg-dashboard-dark/40 p-4 rounded-lg">
+              <p className="text-dashboard-text font-semibold">USER:</p>
+              <p className="text-dashboard-text">"My energy consulting company spends too much time manually analyzing utility bills and suggesting tariff changes"</p>
+            </div>
+
+            <div className="bg-dashboard-dark/20 p-4 rounded-lg">
+              <p className="text-dashboard-text font-semibold">META-AGENT:</p>
+              <p className="text-dashboard-text">"I'll transform your manual bill analysis process into an automated system. Here's what I see..."</p>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <p className="text-dashboard-text font-semibold">1. Current Situation Analysis:</p>
+                <div className="bg-dashboard-dark/10 p-4 rounded-lg font-mono text-sm">
+                  <p className="text-dashboard-text">Detected inefficiencies:</p>
+                  <ul className="list-none space-y-1 ml-4">
+                    <li className="text-dashboard-text">- 8h per client for bill analysis</li>
+                    <li className="text-dashboard-text">- 2h for tariff comparison</li>
+                    <li className="text-dashboard-text">- 3h for client communication</li>
+                    <li className="text-dashboard-text">- 1h for offer preparation</li>
+                    <li className="text-dashboard-text font-semibold mt-2">Total: 14h per client</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-dashboard-text font-semibold">2. AI Transformation Plan:</p>
+                <div className="bg-dashboard-dark/10 p-4 rounded-lg font-mono text-sm">
+                  <p className="text-dashboard-text">Deploying 3 specialized agents:</p>
+                  
+                  <div className="mt-4">
+                    <p className="text-dashboard-text font-semibold">Bill Analysis Agent:</p>
+                    <ul className="list-none space-y-1 ml-4">
+                      <li className="text-dashboard-text">- PDF/image invoice scanning</li>
+                      <li className="text-dashboard-text">- Pattern recognition for billing errors</li>
+                      <li className="text-dashboard-text">- Historical consumption analysis</li>
+                      <li className="text-dashboard-text">- Tariff optimization calculations</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <p className="text-dashboard-text font-semibold">Client Communication Agent:</p>
+                    <ul className="list-none space-y-1 ml-4">
+                      <li className="text-dashboard-text">- Automated initial outreach</li>
+                      <li className="text-dashboard-text">- Savings potential explanation</li>
+                      <li className="text-dashboard-text">- Q&A handling</li>
+                      <li className="text-dashboard-text">- Meeting scheduling</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <p className="text-dashboard-text font-semibold">Offer Generation Agent:</p>
+                    <ul className="list-none space-y-1 ml-4">
+                      <li className="text-dashboard-text">- Custom proposal creation</li>
+                      <li className="text-dashboard-text">- ROI calculations</li>
+                      <li className="text-dashboard-text">- Contract preparation</li>
+                      <li className="text-dashboard-text">- Follow-up automation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-dashboard-text font-semibold">3. Implementation:</p>
+                <div className="bg-dashboard-dark/10 p-4 rounded-lg font-mono text-sm">
+                  <div>
+                    <p className="text-dashboard-text">Day 1: Bill Analysis System</p>
+                    <ul className="list-none space-y-1 ml-4">
+                      <li className="text-dashboard-text">- Upload your historical invoices</li>
+                      <li className="text-dashboard-text">- Training on your data</li>
+                      <li className="text-dashboard-text">- First automated analyses</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <p className="text-dashboard-text">Day 2: Client Communication</p>
+                    <ul className="list-none space-y-1 ml-4">
+                      <li className="text-dashboard-text">- Setting up email templates</li>
+                      <li className="text-dashboard-text">- Configuring chat system</li>
+                      <li className="text-dashboard-text">- Integration with CRM</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <p className="text-dashboard-text">Day 3: Offer Generation</p>
+                    <ul className="list-none space-y-1 ml-4">
+                      <li className="text-dashboard-text">- Template creation</li>
+                      <li className="text-dashboard-text">- Pricing engine setup</li>
+                      <li className="text-dashboard-text">- Approval workflow</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-dashboard-text font-semibold">4. Expected Results:</p>
+                <div className="bg-dashboard-dark/10 p-4 rounded-lg font-mono text-sm">
+                  <p className="text-dashboard-text">Time reduction:</p>
+                  <ul className="list-none space-y-1 ml-4">
+                    <li className="text-dashboard-text">- Bill analysis: 8h → 10 min</li>
+                    <li className="text-dashboard-text">- Client communication: 3h → 30 min</li>
+                    <li className="text-dashboard-text">- Offer preparation: 1h → 5 min</li>
+                  </ul>
+                  <div className="mt-4">
+                    <p className="text-dashboard-text">New process total: 15 min per client</p>
+                    <p className="text-dashboard-text font-semibold">Improvement: 95% time savings</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-dashboard-dark/20 p-4 rounded-lg mt-6">
+              <p className="text-dashboard-text font-semibold">META-AGENT:</p>
+              <p className="text-dashboard-text">"Ready to start the transformation? The system will be fully operational in 3 days, and you can continue serving current clients while we implement."</p>
             </div>
           </div>
         </div>
