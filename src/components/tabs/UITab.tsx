@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Circle } from 'lucide-react';
+import { Circle, Mic } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
@@ -33,7 +34,16 @@ const UITab = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[80vh] relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] relative overflow-hidden">
+      {/* Action Button */}
+      <Button 
+        onClick={handleMicClick}
+        className="mb-8 bg-dashboard-accent2 hover:bg-dashboard-accent2/80 text-white"
+      >
+        <Mic className="mr-2 h-4 w-4" />
+        {isListening ? 'Stop Recording' : 'Start Recording'}
+      </Button>
+
       {/* Animated Background Lines */}
       <div className="absolute inset-0 opacity-[0.05]">
         {/* Horizontal Lines */}
