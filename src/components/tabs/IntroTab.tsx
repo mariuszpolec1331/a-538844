@@ -3,6 +3,19 @@ import React from 'react';
 const IntroTab = () => {
   return (
     <div className="max-w-4xl mx-auto py-8">
+      <div className="mb-12 space-y-6">
+        <h2 className="text-4xl font-bold text-dashboard-text">MetaAgent: The Power of Orchestration</h2>
+        <p className="text-lg leading-relaxed text-dashboard-text">
+          Text-to-action is revolutionizing business automation in 2025. Simply describe what you want to achieve, and MetaAgent's proven methodology transforms your words into real business execution, orchestrating thousands of AI agents and bringing in human expertise exactly when needed.
+        </p>
+        <p className="text-lg leading-relaxed text-dashboard-text">
+          We combine predefined expert scenarios with the right mix of AI agents and domain experts, automating your business processes while maintaining human oversight where it matters most.
+        </p>
+        <p className="text-xl font-semibold text-dashboard-text italic">
+          MetaAgent: Your words become reality.
+        </p>
+      </div>
+      
       <h1 className="text-3xl font-bold mb-6 text-dashboard-text">
         Welcome to MetaAgent
       </h1>
