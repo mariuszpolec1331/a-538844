@@ -4,42 +4,22 @@ import { Circle } from 'lucide-react';
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
   const [time, setTime] = useState(0);
-  const [agents, setAgents] = useState(15670);
-  const [experts, setExperts] = useState(2340);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    let agentInterval: NodeJS.Timeout;
-    let expertInterval: NodeJS.Timeout;
     
     if (isListening) {
-      // Timer interval
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
       }, 1000);
-
-      // Agent counter interval (random between 1-3 seconds)
-      const updateAgent = () => {
-        const randomDelay = Math.floor(Math.random() * (3000 - 1000 + 1) + 1000);
-        setAgents(prev => prev + 1);
-        agentInterval = setTimeout(updateAgent, randomDelay);
-      };
-      updateAgent();
-
-      // Expert counter interval (every 5 seconds)
-      expertInterval = setInterval(() => {
-        setExperts(prev => prev + 1);
-      }, 5000);
     } else {
       setTime(0);
-      setAgents(15670);
-      setExperts(2340);
     }
 
     return () => {
-      if (interval) clearInterval(interval);
-      if (agentInterval) clearTimeout(agentInterval);
-      if (expertInterval) clearInterval(expertInterval);
+      if (interval) {
+        clearInterval(interval);
+      }
     };
   }, [isListening]);
 
@@ -57,33 +37,12 @@ const UITab = () => {
 
   return (
     <div className="flex items-center justify-center min-h-[80vh] relative">
-      {/* Timer and stats at the top */}
+      {/* Timer at the top */}
       {isListening && (
         <div className="absolute top-4 left-1/2 -translate-x-1/2">
-          <div className="hidden md:flex space-x-8 items-center justify-center">
-            <p className="text-sm font-mono text-dashboard-muted">
-              timer: {formatTime(time)}
-            </p>
-            <p className="text-sm font-mono text-dashboard-muted">
-              ai agents {agents.toLocaleString()} (active agents)
-            </p>
-            <p className="text-sm font-mono text-dashboard-muted">
-              ai experts {experts.toLocaleString()} (active experts)
-            </p>
-          </div>
-          
-          {/* Mobile layout */}
-          <div className="md:hidden space-y-2">
-            <p className="text-sm font-mono text-dashboard-muted text-center">
-              timer: {formatTime(time)}
-            </p>
-            <p className="text-sm font-mono text-dashboard-muted text-center">
-              ai agents {agents.toLocaleString()} (active agents)
-            </p>
-            <p className="text-sm font-mono text-dashboard-muted text-center">
-              ai experts {experts.toLocaleString()} (active experts)
-            </p>
-          </div>
+          <p className="text-sm font-mono text-dashboard-muted">
+            {formatTime(time)}
+          </p>
         </div>
       )}
       
