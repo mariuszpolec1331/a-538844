@@ -41,7 +41,6 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
     <div className="md:h-screen fixed bottom-0 md:left-0 md:top-0 w-full md:w-64 glass-card border-t md:border-r border-white/10 z-50">
       <div className="p-4 md:p-6">
         <Tabs 
-          defaultValue="intro"
           onValueChange={onTabChange}
           orientation="horizontal"
           className="w-full"
