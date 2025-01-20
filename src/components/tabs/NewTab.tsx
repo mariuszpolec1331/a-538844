@@ -1,9 +1,6 @@
-import AnimatedBackground from '../AnimatedBackground';
-
 const NewTab = () => {
   return (
-    <div className="space-y-8 max-w-3xl relative overflow-hidden">
-      <AnimatedBackground />
+    <div className="space-y-8 max-w-3xl">
       <h2 className="text-3xl font-bold text-dashboard-text"></h2>
       <div className="space-y-6 text-lg leading-relaxed">
         <p className="text-dashboard-text">

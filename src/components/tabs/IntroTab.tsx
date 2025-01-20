@@ -1,10 +1,8 @@
 import React from 'react';
-import AnimatedBackground from '../AnimatedBackground';
 
 const IntroTab = () => {
   return (
-    <div className="max-w-4xl mx-auto py-8 relative overflow-hidden">
-      <AnimatedBackground />
+    <div className="max-w-4xl mx-auto py-8">
       <div className="mb-12 space-y-6">
         <h2 className="text-4xl font-bold text-dashboard-text">MetaAgent: The Power of Orchestration</h2>
         <p className="text-lg leading-relaxed text-dashboard-text">
