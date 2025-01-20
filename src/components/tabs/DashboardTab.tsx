@@ -2,10 +2,12 @@ import React from 'react';
 import MetricCard from '@/components/MetricCard';
 import MonthlyChart from '@/components/MonthlyChart';
 import CustomerRequests from '@/components/CustomerRequests';
+import AnimatedBackground from '../AnimatedBackground';
 
 const DashboardTab = () => {
   return (
-    <>
+    <div className="relative overflow-hidden">
+      <AnimatedBackground />
       <header className="mb-6 md:mb-8">
         <h1 className="text-2xl md:text-3xl font-medium mb-2">Available assets</h1>
         <p className="text-sm md:text-base text-dashboard-muted">Below are the numbers of assets we have integrated into Meta Agent</p>
@@ -36,7 +38,7 @@ const DashboardTab = () => {
         <MonthlyChart />
         <CustomerRequests />
       </div>
-    </>
+    </div>
   );
 };
 
