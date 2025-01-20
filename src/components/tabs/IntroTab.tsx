@@ -14,6 +14,13 @@ const IntroTab = () => {
         <p className="text-xl font-semibold text-dashboard-text italic">
           MetaAgent: Your words become reality.
         </p>
+        <div className="w-full flex justify-center">
+          <img 
+            src="/lovable-uploads/074264af-3349-43af-a8a8-42edc00136ac.png" 
+            alt="MetaAgent Process Flow"
+            className="max-w-full h-auto"
+          />
+        </div>
       </div>
       
       <h1 className="text-3xl font-bold mb-6 text-dashboard-text">
