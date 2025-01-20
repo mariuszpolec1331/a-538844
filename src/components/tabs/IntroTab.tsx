@@ -16,7 +16,7 @@ const IntroTab = () => {
         </p>
         <div className="w-full flex justify-center">
           <img 
-            src="/lovable-uploads/074264af-3349-43af-a8a8-42edc00136ac.png" 
+            src="/lovable-uploads/0ec99827-da47-4c09-a749-c4c2791887f9.png" 
             alt="MetaAgent Process Flow"
             className="max-w-full h-auto"
           />
