@@ -4,43 +4,20 @@ import { Circle } from 'lucide-react';
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
   const [time, setTime] = useState(0);
-  const [agents, setAgents] = useState(15670);
-  const [experts, setExperts] = useState(2340);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    let agentInterval: NodeJS.Timeout;
-    let expertInterval: NodeJS.Timeout;
     
     if (isListening) {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
       }, 1000);
-
-      // Random interval between 1-3 seconds for agents
-      const updateAgents = () => {
-        const randomDelay = Math.floor(Math.random() * 2000) + 1000; // 1000-3000ms
-        agentInterval = setTimeout(() => {
-          setAgents(prev => prev + 1);
-          updateAgents();
-        }, randomDelay);
-      };
-      updateAgents();
-
-      // Expert counter update every 5 seconds
-      expertInterval = setInterval(() => {
-        setExperts(prev => prev + 1);
-      }, 5000);
     } else {
       setTime(0);
-      setAgents(15670);
-      setExperts(2340);
     }
 
     return () => {
       if (interval) clearInterval(interval);
-      if (agentInterval) clearTimeout(agentInterval);
-      if (expertInterval) clearInterval(expertInterval);
     };
   }, [isListening]);
 
@@ -58,7 +35,7 @@ const UITab = () => {
   return (
     <div className="flex items-center justify-center min-h-[80vh] relative overflow-hidden">
       {/* Animated Background Lines */}
-      <div className="absolute inset-0 opacity-[0.03]">
+      <div className="absolute inset-0 opacity-[0.05]">
         {/* Horizontal Lines */}
         {[...Array(20)].map((_, i) => (
           <div
@@ -103,13 +80,11 @@ const UITab = () => {
         ))}
       </div>
 
-      {/* Timer and Counters Row */}
+      {/* Timer Row */}
       {isListening && (
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-full px-4">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-sm font-mono text-dashboard-muted">
+          <div className="flex items-center justify-center text-sm font-mono text-dashboard-muted">
             <span>timer: {formatTime(time)}</span>
-            <span>ai agents: {agents.toLocaleString()} (active agents)</span>
-            <span>ai experts: {experts.toLocaleString()} (active experts)</span>
           </div>
         </div>
       )}
