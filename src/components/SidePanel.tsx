@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LayoutDashboard, Settings, Mic2, Info, Plus } from "lucide-react";
+import { LayoutDashboard, Settings, Mic2, Info, Plus, Phone } from "lucide-react";
 import { useState } from "react";
 
 interface SidePanelProps {
@@ -24,7 +24,7 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
           className="w-full"
         >
           <TabsList 
-            className="grid grid-cols-5 md:grid-cols-1 h-auto bg-transparent text-white w-full gap-2 md:gap-4" 
+            className="grid grid-cols-6 md:grid-cols-1 h-auto bg-transparent text-white w-full gap-2 md:gap-4" 
           >
             <TabsTrigger 
               value="intro" 
@@ -60,6 +60,13 @@ const SidePanel = ({ onTabChange }: SidePanelProps) => {
             >
               <Mic2 className="w-4 h-4" />
               <span className="hidden md:inline">Interface</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="contact" 
+              className={`flex justify-center md:justify-start gap-2 text-xs md:text-sm p-4 rounded-lg border border-white/10 hover:bg-white/5 transition-all ${activeTab === 'contact' ? 'bg-white/10' : ''}`}
+            >
+              <Phone className="w-4 h-4" />
+              <span className="hidden md:inline">Contact</span>
             </TabsTrigger>
           </TabsList>
         </Tabs>

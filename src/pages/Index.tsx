@@ -4,6 +4,7 @@ import DashboardTab from '@/components/tabs/DashboardTab';
 import UITab from '@/components/tabs/UITab';
 import SettingsTab from '@/components/tabs/SettingsTab';
 import NewTab from '@/components/tabs/NewTab';
+import ContactTab from '@/components/tabs/ContactTab';
 import SidePanel from '@/components/SidePanel';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -44,6 +45,8 @@ const Index = () => {
         return 'Layers';
       case 'new':
         return 'Killer Feature';
+      case 'contact':
+        return 'Contact';
       default:
         return '';
     }
@@ -61,6 +64,8 @@ const Index = () => {
         return <SettingsTab />;
       case 'new':
         return <NewTab />;
+      case 'contact':
+        return <ContactTab />;
       default:
         return <IntroTab />;
     }
