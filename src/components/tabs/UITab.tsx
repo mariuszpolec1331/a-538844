@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Circle, Mic } from 'lucide-react';
-import { Button } from "@/components/ui/button";
 
 const UITab = () => {
   const [isListening, setIsListening] = useState(false);
@@ -138,17 +137,8 @@ const UITab = () => {
           </div>
         </button>
       </div>
-
-      {/* Action Button moved lower */}
-      <Button 
-        onClick={handleMicClick}
-        className="mt-16 mb-8 bg-dashboard-accent2 hover:bg-dashboard-accent2/80 text-white"
-      >
-        <Mic className="mr-2 h-4 w-4" />
-        Push-to-talk
-      </Button>
       
-      <div className={`mb-16 transition-opacity duration-300 ${
+      <div className={`mt-16 mb-16 transition-opacity duration-300 ${
         isListening ? 'opacity-100' : 'opacity-70'
       }`}>
         <p className="text-xl font-medium text-dashboard-text text-center">
